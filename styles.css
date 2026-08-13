@@ -355,7 +355,7 @@
     font-family: var(--font-display);
     font-style: italic;
     font-weight: 400;
-    font-size: clamp(2.75rem, 7vw, 4.75rem);
+    font-size: clamp(1.4rem, 3.5vw, 2.4rem);
     letter-spacing: 0;
     text-transform: none;
     line-height: 1;
@@ -366,7 +366,7 @@
   .about-statement h2 {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
+    font-size: clamp(0.95rem, 1.8vw, 1.3rem);
     line-height: 1.2;
     margin: 0 0 1.5rem;
     text-wrap: balance;
