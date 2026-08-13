@@ -351,6 +351,18 @@
     display: block;
   }
 
+  .about-statement .eyebrow {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(2.75rem, 7vw, 4.75rem);
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1;
+    color: var(--purple);
+    margin: 0 0 1rem;
+  }
+
   .about-statement h2 {
     font-family: var(--font-display);
     font-weight: 400;
@@ -510,7 +522,7 @@
   /* ---------- final CTA ---------- */
   .final-cta {
     position: relative;
-    background: radial-gradient(140% 100% at 15% 15%, #24402f 0%, var(--hunter) 40%, var(--hunter-deep) 100%);
+    background: radial-gradient(140% 100% at 15% 15%, #4a3b64 0%, var(--hunter) 48%, var(--hunter-deep) 100%);
     color: var(--cream-ink);
     padding: clamp(5rem, 10vw, 7.5rem) 0;
     overflow: hidden;
@@ -664,7 +676,7 @@
   .book-page { position: relative; z-index: 10; }
 
   .book-hero {
-    background: radial-gradient(120% 90% at 20% 20%, #2c4a38 0%, var(--hunter) 45%, var(--hunter-deep) 100%);
+    background: radial-gradient(120% 90% at 20% 20%, #453759 0%, var(--hunter) 45%, var(--hunter-deep) 100%);
     color: var(--cream-ink);
     padding: clamp(4.5rem, 9vw, 7rem) 0;
   }
