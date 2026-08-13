@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 node_modules/
+
+# raw uploads and temp encoding helpers, not needed by the deployed site
+assets/Cards/
+assets/*.b64

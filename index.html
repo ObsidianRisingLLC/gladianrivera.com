@@ -1,64 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gladian Rivera</title>
-  <meta name="description" content="Gladian Rivera — personal site.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gladian Rivera</title>
+<meta name="description" content="Gladian Rivera — ideas, impact, transformation. Strategist, author of The Sovereign Leader, speaker, and creator.">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <span class="logo">Gladian Rivera</span>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#work">Work</a>
-        <a href="#contact">Contact</a>
-      </nav>
+
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="mark-glyph" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
+      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+        <line x1="24" y1="4" x2="24" y2="12"/>
+        <line x1="24" y1="36" x2="24" y2="44"/>
+        <line x1="4" y1="24" x2="12" y2="24"/>
+        <line x1="36" y1="24" x2="44" y2="24"/>
+        <line x1="10.5" y1="10.5" x2="15.5" y2="15.5"/>
+        <line x1="32.5" y1="32.5" x2="37.5" y2="37.5"/>
+        <line x1="37.5" y1="10.5" x2="32.5" y2="15.5"/>
+        <line x1="15.5" y1="32.5" x2="10.5" y2="37.5"/>
+      </g>
+      <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-compass" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M24 12 L28 22 L24 26 L20 22 Z" fill="currentColor" stroke="none" opacity="0.85"/>
+      <path d="M24 36 L20 26 L24 22 L28 26 Z" fill="none" stroke="currentColor" stroke-width="1"/>
+      <circle cx="24" cy="24" r="1.6" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-lotus" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M24 34 C24 22 18 16 12 14 C13 24 18 31 24 34 Z"/>
+        <path d="M24 34 C24 22 30 16 36 14 C35 24 30 31 24 34 Z"/>
+        <path d="M24 34 C24 20 24 14 24 10 C24 14 24 20 24 34 Z"/>
+      </g>
+    </symbol>
+    <symbol id="icon-human" viewBox="0 0 48 48">
+      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
+        <path d="M12 32 C12 22 17 16 24 16 C31 16 36 22 36 32"/>
+        <path d="M8 34 C13 28 18 32 24 26 C30 32 35 28 40 34"/>
+      </g>
+    </symbol>
+    <symbol id="icon-horizon" viewBox="0 0 48 48">
+      <circle cx="24" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <line x1="8" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="1.2"/>
+      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
+        <line x1="16" y1="38" x2="14" y2="38"/>
+        <line x1="22" y1="38" x2="20" y2="38"/>
+        <line x1="30" y1="38" x2="28" y2="38"/>
+        <line x1="36" y1="38" x2="34" y2="38"/>
+      </g>
+    </symbol>
+    <symbol id="icon-linkedin" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <line x1="7.5" y1="10" x2="7.5" y2="17"/>
+        <circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/>
+        <path d="M12 17v-4.2c0-1.5 1-2.3 2.3-2.3s2.2.8 2.2 2.3V17"/>
+        <line x1="12" y1="10" x2="12" y2="17"/>
+      </g>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.4">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4.2"/>
+        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+        <rect x="3" y="6" width="18" height="12" rx="3"/>
+        <path d="M10.5 9.5 L15.5 12 L10.5 14.5 Z" fill="currentColor" stroke="none"/>
+      </g>
+    </symbol>
+    <symbol id="icon-email" viewBox="0 0 24 24">
+      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <path d="M4 6.5 L12 13 L20 6.5"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header id="site-header">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <svg class="mark" style="color: var(--gold)"><use href="#mark-glyph"/></svg>
+      <span class="wordmark">Gladian Rivera</span>
+    </a>
+    <nav class="primary-nav">
+      <a href="#top" class="current">Home</a>
+      <a href="#about">About</a>
+      <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener">Work With Me</a>
+      <a href="#book">Book</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+      <a href="#connect" class="ghost-btn">Let's Connect</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobile-panel">
+  <a href="#top">Home</a>
+  <a href="#about">About</a>
+  <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener">Work With Me</a>
+  <a href="#book">Book</a>
+  <a href="#speaking">Speaking</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+  <a href="#connect" class="ghost-btn on-dark">Let's Connect</a>
+</div>
+
+<main id="top">
+  <section class="hero on-dark">
+    <div class="hero-art">
+        <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg"><source src="assets/Watercolor_bird_gliding_past_moon_202608121519.mp4" type="video/mp4"></video>
+      </div><div class="hero-scrim"></div><div class="wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">Welcome to My World</p>
+        <h1>Ideas.<br>Impact.<br><em>Transformation.</em></h1>
+        <p class="lede">I explore the intersection of leadership, technology, creativity, and human potential to build systems, stories, and experiences that create lasting change.</p>
+        <a href="#pathways" class="ghost-btn">Explore My Work →</a>
+      </div>
+      
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero wrap">
-      <h1>Gladian Rivera</h1>
-      <!-- TODO: replace with your real tagline -->
-      <p class="tagline">Tagline goes here — one line about who you are.</p>
-    </section>
+  <section class="about on-light reveal" id="about">
+    <div class="wrap">
+      <div class="portrait-frame"><img class="portrait-img" src="assets/portrait.jpg" alt="Portrait of Gladian Rivera"></div>
+      <div>
+        <div class="about-statement">
+          <p class="eyebrow">Hi, I'm Gladian</p>
+          <h2>I build clarity.<br>I create systems.<br><em>I create experiences for lasting impact.</em></h2>
+          <p class="desc">Gladian Rivera is a strategist, author, speaker, and creator working across leadership, technology, creativity, systems, and human-centered transformation.</p>
+          <a href="#about" class="text-link">More About Me →</a>
+        </div>
+        <div class="qualities">
+          <div class="quality">
+            <svg class="quality-icon"><use href="#icon-compass"/></svg>
+            <h3>Strategic Mind</h3>
+            <p>I find clarity in complexity and design systems that work.</p>
+          </div>
+          <div class="quality">
+            <svg class="quality-icon"><use href="#icon-lotus"/></svg>
+            <h3>Creative Soul</h3>
+            <p>I see beauty, possibility, and story in everything.</p>
+          </div>
+          <div class="quality">
+            <svg class="quality-icon"><use href="#icon-human"/></svg>
+            <h3>Human-Centered</h3>
+            <p>I lead with empathy, empower people, and create impact.</p>
+          </div>
+          <div class="quality">
+            <svg class="quality-icon"><use href="#icon-horizon"/></svg>
+            <h3>Future-Focused</h3>
+            <p>I explore emerging ideas and build for what's next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="about" class="wrap">
-      <h2>About</h2>
-      <!-- TODO: replace with your real bio -->
-      <p>
-        This is a placeholder bio. Write a couple of sentences about who you are,
-        what you work on, and what brings people to this page.
-      </p>
-    </section>
+  <section class="pathways reveal" id="pathways">
+    <div class="wrap">
+      <div class="section-head">
+        <h2><em>Doors into my world.</em></h2>
+      </div>
+      <div class="pathway-grid">
+        <div class="pathway-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front"><img src="assets/card-book.jpg" alt="Book"></div>
+            <div class="card-back">
+              <p>The Sovereign Leader: leading from inner authority after the forge.</p>
+              <div class="card-links">
+                <a href="#book" class="text-link">Learn More →</a>
+                <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="text-link">Buy Here →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pathway-card" tabindex="0" id="speaking">
+          <div class="card-inner">
+            <div class="card-front"><img src="assets/card-speaking.jpg" alt="Speaking"></div>
+            <div class="card-back">
+              <p>Topics that inspire, challenge, and equip leaders to lead with inner authority.</p>
+              <div class="card-links">
+                <a href="#speaking" class="text-link">Explore →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pathway-card" tabindex="0">
+          <div class="card-inner">
+            <div class="card-front"><img src="assets/card-work-with-me.jpg" alt="Work With Me"></div>
+            <div class="card-back">
+              <p>Strategy, operations, AI, and leadership consulting lives through Obsidian Rising.</p>
+              <div class="card-links">
+                <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener" class="text-link">Learn More →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pathway-card" tabindex="0" id="portfolio">
+          <div class="card-inner">
+            <div class="card-front"><img src="assets/card-portfolio.jpg" alt="Portfolio"></div>
+            <div class="card-back">
+              <p>Selected work and creative projects, built over the years.</p>
+              <div class="card-links">
+                <a href="#portfolio" class="text-link">Explore →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pathway-card" tabindex="0" id="contact">
+          <div class="card-inner">
+            <div class="card-front"><img src="assets/card-contact.jpg" alt="Contact"></div>
+            <div class="card-back">
+              <p>Partnerships, media, speaking, or just want to connect? Let's talk.</p>
+              <div class="card-links">
+                <a href="mailto:you@gladianrivera.com" class="text-link">Connect →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="work" class="wrap">
-      <h2>Work</h2>
-      <!-- TODO: add real projects/links -->
-      <ul class="links">
-        <li><a href="#">Project or link one</a></li>
-        <li><a href="#">Project or link two</a></li>
-      </ul>
-    </section>
+  <section class="final-cta on-dark reveal" id="connect">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Let's Create What Matters</p>
+        <h2>Do meaningful work.<br><em>Build what lasts.</em></h2>
+        <p class="support">Meaningful work can take many forms &mdash; whether you're here to read, listen, collaborate, or simply connect, there's a place for you in this world.</p>
+        <a href="mailto:you@gladianrivera.com" class="ghost-btn">Let's Connect →</a>
+      </div>
+      <div></div>
+    </div>
+    <svg class="final-cta-feather" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="featherWash" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#c7a25a" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#6b5a80" stop-opacity="0.15"/>
+        </linearGradient>
+      </defs>
+      <path d="M100,10 C130,80 130,200 100,290 C70,200 70,80 100,10 Z" fill="none" stroke="url(#featherWash)" stroke-width="1.4"/>
+      <path d="M100,20 L100,280" stroke="url(#featherWash)" stroke-width="1"/>
+    </svg>
+  </section>
 
-    <section id="contact" class="wrap">
-      <h2>Contact</h2>
-      <!-- TODO: add real contact info / socials -->
-      <ul class="links">
-        <li><a href="mailto:you@gladianrivera.com">you@gladianrivera.com</a></li>
-      </ul>
-    </section>
-  </main>
+  <section class="book-page" id="book">
+    <div class="book-hero">
+      <div class="wrap book-hero-grid">
+        <div class="book-cover-frame"><img class="book-cover-img" src="assets/book-cover.jpg" alt="The Sovereign Leader book cover"></div>
+        <div class="book-hero-copy">
+          <p class="eyebrow">The Book</p>
+          <h2>The Sovereign Leader</h2>
+          <p class="book-subhead">Leading From Inner Authority After the Forge</p>
+          <p class="lede">A framework for leading complex systems without losing yourself inside them &mdash; built on clarity, self-trust, and wholeness.</p>
+          <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy &rarr;</a>
+        </div>
+      </div>
+    </div>
 
-  <footer class="wrap">
-    <p>&copy; <span id="year"></span> Gladian Rivera</p>
-  </footer>
+    <div class="book-praise">
+      <div class="wrap">
+        <p class="eyebrow">Advance Praise</p>
+        <div class="praise-grid">
+          <blockquote>
+            <p>This book is so full of wisdom and lessons learned that the world needs to hear.</p>
+            <cite>Dr. Sheila R. Trapp, Owner, S. Renae Consultant Group</cite>
+          </blockquote>
+          <blockquote>
+            <p>The book could save lives. It's an amazing read. It hit home. I loved it.</p>
+            <cite>Anthony Gangi, Host of Tier Talk &amp; YouTube Influencer</cite>
+          </blockquote>
+          <blockquote>
+            <p>The book also dives into how systems can either diminish you or elevate you.</p>
+            <cite>Alba, Founder &amp; CEO, Maro Solution</cite>
+          </blockquote>
+        </div>
+      </div>
+    </div>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <div class="book-framework">
+      <div class="wrap">
+        <p class="eyebrow">The Framework</p>
+        <div class="framework-grid">
+          <div class="pillar">
+            <span class="pillar-num">I.</span>
+            <h3>Clarity</h3>
+            <p>Knowing what you actually think, value, and choose &mdash; separate from the noise of institutional expectation, external pressure, and roles.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">II.</span>
+            <h3>Self-Trust</h3>
+            <p>The practice of honoring your own discernment. Not confidence performed for others, but the quiet, unshakeable knowing that your internal compass is reliable.</p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-num">III.</span>
+            <h3>Wholeness</h3>
+            <p>Integration, not balance. Bringing all of who you are into how you lead.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="book-inside">
+      <div class="wrap">
+        <p class="eyebrow">Inside the Book</p>
+        <div class="inside-grid">
+          <div>
+            <h3>Part I &mdash; The Forge</h3>
+            <p>Where you examine what shaped you: the systems, the silences, and the stories you inherited.</p>
+          </div>
+          <div>
+            <h3>Part II &mdash; The Pillars</h3>
+            <p>A deep build of the three-pillar framework &mdash; Clarity, Self-Trust, and Wholeness &mdash; explored not as concepts but as lived, practiced disciplines.</p>
+          </div>
+          <div>
+            <h3>Part III &mdash; The Practice</h3>
+            <p>How sovereign leadership operates in real conditions: in rooms that weren't built for you, in decisions that carry weight.</p>
+          </div>
+        </div>
+        <div class="book-cta-inline">
+          <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <svg class="mark" style="color: var(--gold-soft); width:26px;height:26px;"><use href="#mark-glyph"/></svg>
+        <span class="wordmark">Gladian Rivera</span>
+      </div>
+      <nav class="footer-nav">
+        <a href="#top">Home</a>
+        <a href="#about">About</a>
+        <a href="https://obsidianrisingllc.com">Work With Me</a>
+        <a href="#book">Book</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="mailto:you@gladianrivera.com">Contact</a>
+      </nav>
+      <div class="footer-connect">
+        <p class="eyebrow">Stay Connected</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"/></svg></a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<script src="script.js" defer></script>
 </body>
 </html>
