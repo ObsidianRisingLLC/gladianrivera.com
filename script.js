@@ -35,6 +35,43 @@
     });
   });
 
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    var note = document.getElementById('contact-form-note');
+    var submitBtn = contactForm.querySelector('button[type="submit"]');
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitBtn.setAttribute('disabled', 'true');
+      note.textContent = 'Sending…';
+      note.className = 'contact-form-note';
+      fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      }).then(function (response) {
+        if (response.ok) {
+          contactForm.reset();
+          note.textContent = "Thanks — your message is on its way. I'll get back to you soon.";
+          note.className = 'contact-form-note is-success';
+        } else {
+          response.json().then(function (data) {
+            var msg = (data && data.errors && data.errors.length) ? data.errors.map(function (er) { return er.message; }).join(', ') : 'Something went wrong.';
+            note.textContent = msg + ' You can also email gladian.rivera@gmail.com directly.';
+            note.className = 'contact-form-note is-error';
+          }).catch(function () {
+            note.textContent = 'Something went wrong. You can also email gladian.rivera@gmail.com directly.';
+            note.className = 'contact-form-note is-error';
+          });
+        }
+      }).catch(function () {
+        note.textContent = 'Something went wrong. You can also email gladian.rivera@gmail.com directly.';
+        note.className = 'contact-form-note is-error';
+      }).finally(function () {
+        submitBtn.removeAttribute('disabled');
+      });
+    });
+  }
+
     var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion) {
     var io = new IntersectionObserver(function (entries) {
