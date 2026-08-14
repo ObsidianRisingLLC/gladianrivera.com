@@ -56,15 +56,15 @@
         } else {
           response.json().then(function (data) {
             var msg = (data && data.errors && data.errors.length) ? data.errors.map(function (er) { return er.message; }).join(', ') : 'Something went wrong.';
-            note.textContent = msg + ' You can also email gladian.rivera@gmail.com directly.';
+            note.textContent = msg + ' Please try again, or reach out via social.';
             note.className = 'contact-form-note is-error';
           }).catch(function () {
-            note.textContent = 'Something went wrong. You can also email gladian.rivera@gmail.com directly.';
+            note.textContent = 'Something went wrong. Please try again, or reach out via social.';
             note.className = 'contact-form-note is-error';
           });
         }
       }).catch(function () {
-        note.textContent = 'Something went wrong. You can also email gladian.rivera@gmail.com directly.';
+        note.textContent = 'Something went wrong. Please try again, or reach out via social.';
         note.className = 'contact-form-note is-error';
       }).finally(function () {
         submitBtn.removeAttribute('disabled');
