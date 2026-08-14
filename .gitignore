@@ -4,4 +4,5 @@ node_modules/
 
 # raw uploads and temp encoding helpers, not needed by the deployed site
 assets/Cards/
+assets/Podcast/
 assets/*.b64
