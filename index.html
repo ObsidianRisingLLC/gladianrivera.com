@@ -20,7 +20,9 @@
 <meta name="twitter:title" content="Gladian Rivera — Ideas. Impact. Transformation.">
 <meta name="twitter:description" content="Gladian Rivera — ideas, impact, transformation. Strategist, author of The Sovereign Leader, speaker, and creator.">
 <meta name="twitter:image" content="https://gladianrivera.com/assets/hero-poster.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -28,7 +30,7 @@
   "@id": "https://gladianrivera.com/#person",
   "name": "Gladian Rivera",
   "url": "https://gladianrivera.com/",
-  "image": "https://gladianrivera.com/assets/portrait.jpg",
+  "image": "https://gladianrivera.com/assets/Portrait%203.jpg",
   "jobTitle": ["Strategist", "Author", "Speaker"],
   "description": "Strategist, author of The Sovereign Leader, speaker, and creator working across leadership, technology, creativity, and human-centered transformation.",
   "sameAs": [
@@ -43,309 +45,483 @@
   }
 }
 </script>
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #ff91a4;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- floating nav ---------- */
+  /* Padding/font metrics must match the floating-nav on every other page
+     byte-for-byte — the nav is position:fixed over the hero image, so any
+     height difference between pages changes how much of the crystal is
+     exposed below it, even though the image itself renders identically. */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--foreground);
+    white-space: nowrap;
+  }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(255, 145, 164, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  /* ---------- scroll sequence ---------- */
+  #home-sequence {
+    position: relative;
+    background: var(--background);
+  }
+  #home-sequence canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  #home-sequence.is-ready canvas { opacity: 1; }
+
+  .caption-layer {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1.5rem;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.4) 100%);
+  }
+  .caption {
+    position: absolute;
+    margin: 0;
+    opacity: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    color: var(--foreground);
+    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+  }
+  .caption-tagline { max-width: 760px; font-size: clamp(2rem, 4.5vw, 3.3rem); line-height: 1.2; }
+  .caption-tagline em { font-style: italic; color: var(--salmon); }
+
+  .bio-layer {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.25rem;
+    pointer-events: none;
+  }
+  .bio-card {
+    opacity: 0;
+    width: min(480px, 90vw);
+    padding: 2.2rem 2.4rem;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.5rem;
+  }
+  .bio-card h1 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    color: var(--foreground);
+  }
+  .bio-card .bio-lines {
+    margin: 0 0 1.3rem;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--foreground);
+  }
+  .bio-card .bio-lines div { margin: 0; }
+  .bio-card p.bio-desc {
+    margin: 0 0 1.6rem;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(229, 226, 225, 0.78);
+  }
+  .bio-card .bio-cta {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--salmon);
+    border-radius: 0.25rem;
+    color: var(--salmon);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    pointer-events: auto;
+  }
+
+  .trait-layer {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.25rem;
+    pointer-events: none;
+  }
+  .trait-stack { width: min(560px, 92vw); display: flex; flex-direction: column; gap: 1.4rem; }
+  .trait-card {
+    opacity: 0;
+    padding: 1.4rem 1.6rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.5rem;
+  }
+  .trait-card .trait-title {
+    margin: 0 0 0.4rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--foreground);
+  }
+  .trait-card .trait-body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(229, 226, 225, 0.8);
+  }
+
+  /* Down to 5 shard buttons (from 6) now that Speaking and Portfolio live
+     inside Work With Me — the icon treatment below is specific to this
+     bottom "Explore" cluster on the home page and intentionally isn't
+     mirrored in the top floating-nav on any page. */
+  .nav-buttons-layer {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    padding: 0 1.5rem;
+    pointer-events: none;
+  }
+  .nav-pill-wrap { display: inline-block; position: relative; opacity: 0; }
+  .nav-pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    overflow: hidden;
+    padding: 1.35rem 2.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: var(--salmon);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: #000;
+    transition: border-color 0.35s ease;
+    pointer-events: auto;
+  }
+  .nav-pill svg {
+    width: 19px;
+    height: 19px;
+    flex-shrink: 0;
+    stroke: currentColor;
+  }
+  .nav-pill::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -60%;
+    width: 30%; height: 100%;
+    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.16), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+  }
+  .nav-pill-wrap:hover .nav-pill,
+  .nav-pill-wrap:focus-within .nav-pill { border-color: rgba(255,255,255,0.4); }
+  .nav-pill-wrap:hover .nav-pill::after,
+  .nav-pill-wrap:focus-within .nav-pill::after { left: 130%; }
+
+  /* The dropdown's own box starts flush against the pill (top: 100%, no
+     gap) — the old `calc(100% + 0.6rem)` left a genuine dead zone that
+     belonged to neither element, and pointer-events snaps to none the
+     instant hover is lost (it isn't part of the transition), so crossing
+     that gap made the card unclickable before the cursor ever arrived.
+     The visual gap now lives INSIDE the dropdown as transparent
+     padding-top, so hovering through that space still counts as hovering
+     a descendant of .nav-pill-wrap — continuous hover, same look. */
+  .nav-pill-drop {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    padding-top: 0.6rem;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 5;
+  }
+  .nav-pill-wrap:hover .nav-pill-drop,
+  .nav-pill-wrap:focus-within .nav-pill-drop {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-pill-drop-inner {
+    padding: 1.1rem 1.2rem;
+    background: #000;
+    border: 1px solid rgba(255,255,255,0.16);
+    transform: translateY(-6px);
+    transition: transform 0.25s ease;
+  }
+  .nav-pill-wrap:hover .nav-pill-drop-inner,
+  .nav-pill-wrap:focus-within .nav-pill-drop-inner {
+    transform: translateY(0);
+  }
+  .nav-pill-drop p {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.85);
+  }
+  .nav-pill-drop-links { display: flex; flex-direction: column; gap: 0.4rem; }
+  .nav-pill-drop-links a {
+    color: var(--emerald-bright);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .nav-pill-drop-links a:hover { color: #fff; }
+
+  @media (max-width: 640px) {
+    .nav-pill { padding: 1rem 1.8rem; font-size: 0.76rem; letter-spacing: 0.16em; gap: 0.6rem; }
+    .nav-pill svg { width: 16px; height: 16px; }
+    .nav-pill-drop { width: 210px; }
+  }
+</style>
 </head>
 <body>
 
+<a class="skip-link" href="#main-content">Skip to content</a>
 
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="mark-glyph" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="24" y1="4" x2="24" y2="12"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <line x1="4" y1="24" x2="12" y2="24"/>
-        <line x1="36" y1="24" x2="44" y2="24"/>
-        <line x1="10.5" y1="10.5" x2="15.5" y2="15.5"/>
-        <line x1="32.5" y1="32.5" x2="37.5" y2="37.5"/>
-        <line x1="37.5" y1="10.5" x2="32.5" y2="15.5"/>
-        <line x1="15.5" y1="32.5" x2="10.5" y2="37.5"/>
-      </g>
-      <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-compass" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="1.2"/>
-      <path d="M24 12 L28 22 L24 26 L20 22 Z" fill="currentColor" stroke="none" opacity="0.85"/>
-      <path d="M24 36 L20 26 L24 22 L28 26 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      <circle cx="24" cy="24" r="1.6" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-lotus" viewBox="0 0 48 48">
-      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-        <path d="M24 34 C24 22 18 16 12 14 C13 24 18 31 24 34 Z"/>
-        <path d="M24 34 C24 22 30 16 36 14 C35 24 30 31 24 34 Z"/>
-        <path d="M24 34 C24 20 24 14 24 10 C24 14 24 20 24 34 Z"/>
-      </g>
-    </symbol>
-    <symbol id="icon-human" viewBox="0 0 48 48">
-      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-        <path d="M12 32 C12 22 17 16 24 16 C31 16 36 22 36 32"/>
-        <path d="M8 34 C13 28 18 32 24 26 C30 32 35 28 40 34"/>
-      </g>
-    </symbol>
-    <symbol id="icon-horizon" viewBox="0 0 48 48">
-      <circle cx="24" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/>
-      <line x1="8" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="1.2"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="16" y1="38" x2="14" y2="38"/>
-        <line x1="22" y1="38" x2="20" y2="38"/>
-        <line x1="30" y1="38" x2="28" y2="38"/>
-        <line x1="36" y1="38" x2="34" y2="38"/>
-      </g>
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <line x1="7.5" y1="10" x2="7.5" y2="17"/>
-        <circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-        <path d="M12 17v-4.2c0-1.5 1-2.3 2.3-2.3s2.2.8 2.2 2.3V17"/>
-        <line x1="12" y1="10" x2="12" y2="17"/>
-      </g>
-    </symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4.2"/>
-        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-    <symbol id="icon-youtube" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-        <rect x="3" y="6" width="18" height="12" rx="3"/>
-        <path d="M10.5 9.5 L15.5 12 L10.5 14.5 Z" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-    <symbol id="icon-email" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-        <rect x="3" y="5" width="18" height="14" rx="2"/>
-        <path d="M4 6.5 L12 13 L20 6.5"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
-<a class="skip-link" href="#top">Skip to content</a>
-
-<header id="site-header">
-  <div class="wrap">
-    <a href="#top" class="brand">
-      <svg class="mark" style="color: var(--gold)"><use href="#mark-glyph"/></svg>
-      <span class="wordmark">Gladian Rivera</span>
-    </a>
-    <nav class="primary-nav">
-      <a href="#top" class="current">Home</a>
-      <a href="#about">About</a>
-      <a href="/work-with-me">Work With Me</a>
-      <a href="/book">Book</a>
-      <a href="/podcast">Podcast</a>
-      <a href="/speaking">Speaking</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/contact">Contact</a>
-      <a href="#connect" class="ghost-btn">Let's Connect</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
   </div>
-</header>
+  <div class="floating-nav-links">
+    <a href="/" class="current">Home</a>
+    <a href="/about">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast">Podcast</a>
+    <a href="/book">Book</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
 
-<div class="mobile-panel" id="mobile-panel">
-  <a href="#top">Home</a>
-  <a href="#about">About</a>
-  <a href="/work-with-me">Work With Me</a>
-  <a href="/book">Book</a>
-  <a href="/podcast">Podcast</a>
-  <a href="/speaking">Speaking</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/contact">Contact</a>
-  <a href="#connect" class="ghost-btn on-dark">Let's Connect</a>
-</div>
+<main id="main-content">
+<section id="home-sequence">
+  <canvas id="home-sequence-canvas"></canvas>
 
-<main id="top">
-  <section class="hero on-dark">
-    <div class="hero-art">
-        <video class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg"><source src="assets/Watercolor_bird_gliding_past_moon_202608121519.mp4" type="video/mp4"></video>
-      </div><div class="hero-scrim"></div><div class="wrap">
-      <div class="hero-copy">
-        <p class="eyebrow">Welcome to My World</p>
-        <h1>Ideas.<br>Impact.<br><em>Transformation.</em></h1>
-        <p class="lede">I explore the intersection of leadership, technology, creativity, and human potential to build systems, stories, and experiences that create lasting change.</p>
-        <a href="#pathways" class="ghost-btn">Explore My Work →</a>
+  <div class="caption-layer">
+    <h1 class="caption caption-welcome">Welcome</h1>
+    <h1 class="caption caption-tagline">Ideas. Impact. <em>Transformation.</em></h1>
+    <h1 class="caption caption-explore">Explore</h1>
+  </div>
+
+  <div class="bio-layer">
+    <div class="bio-card">
+      <h1>Hi, I&rsquo;m Gladian</h1>
+      <div class="bio-lines">
+        <div>I build clarity.</div>
+        <div>I create systems.</div>
+        <div>I create experiences for lasting impact.</div>
       </div>
-      
+      <p class="bio-desc">Gladian Rivera is a strategist, author, speaker, and creator working across leadership, technology, creativity, systems, and human-centered transformation.</p>
+      <a href="/work-with-me" class="bio-cta">More About Me →</a>
     </div>
-  </section>
+  </div>
 
-  <section class="about on-light reveal" id="about">
-    <div class="wrap">
-      <div class="portrait-frame"><img class="portrait-img" src="assets/portrait.jpg" alt="Portrait of Gladian Rivera"></div>
-      <div>
-        <div class="about-statement">
-          <p class="eyebrow">Hi, I'm Gladian</p>
-          <h2>I build clarity.<br>I create systems.<br><em>I create experiences for lasting impact.</em></h2>
-          <p class="desc">Gladian Rivera is a strategist, author, speaker, and creator working across leadership, technology, creativity, systems, and human-centered transformation.</p>
-          <a href="#about" class="text-link">More About Me →</a>
-        </div>
-        <div class="qualities">
-          <div class="quality">
-            <svg class="quality-icon"><use href="#icon-compass"/></svg>
-            <h3>Strategic Mind</h3>
-            <p>I find clarity in complexity and design systems that work.</p>
-          </div>
-          <div class="quality">
-            <svg class="quality-icon"><use href="#icon-lotus"/></svg>
-            <h3>Creative Soul</h3>
-            <p>I see possibility and meaningful stories in everything.</p>
-          </div>
-          <div class="quality">
-            <svg class="quality-icon"><use href="#icon-human"/></svg>
-            <h3>Human-Centered</h3>
-            <p>I lead with empathy, empower people, and create impact.</p>
-          </div>
-          <div class="quality">
-            <svg class="quality-icon"><use href="#icon-horizon"/></svg>
-            <h3>Future-Focused</h3>
-            <p>I explore emerging ideas, and frontier developments in AI to build what's next.</p>
-          </div>
-        </div>
+  <div class="trait-layer">
+    <div class="trait-stack">
+      <div class="trait-card">
+        <p class="trait-title">Strategic Mind</p>
+        <p class="trait-body">I find clarity in complexity and design systems that work.</p>
+      </div>
+      <div class="trait-card">
+        <p class="trait-title">Creative Soul</p>
+        <p class="trait-body">I see possibility and meaningful stories in everything.</p>
+      </div>
+      <div class="trait-card">
+        <p class="trait-title">Human-Centered</p>
+        <p class="trait-body">I lead with empathy, empower people, and create impact.</p>
+      </div>
+      <div class="trait-card">
+        <p class="trait-title">Future-Focused</p>
+        <p class="trait-body">I explore emerging ideas, and frontier developments in AI to build what's next.</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pathways reveal" id="pathways">
-    <div class="wrap">
-      <div class="section-head">
-        <h2><em>Doors into my world.</em></h2>
+  <div class="nav-buttons-layer">
+    <div class="nav-pill-wrap">
+      <a href="/about" class="nav-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.6"></circle><path d="M4.8 20c1.1-3.6 4-5.6 7.2-5.6s6.1 2 7.2 5.6"></path></svg>
+        About
+      </a>
+      <div class="nav-pill-drop">
+        <div class="nav-pill-drop-inner">
+          <p>Strategist, author, speaker, and creator working across leadership, technology, and human-centered transformation.</p>
+          <div class="nav-pill-drop-links"><a href="/about">More About Me →</a></div>
+        </div>
       </div>
-      <div class="pathway-grid">
-        <div class="pathway-card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-book.jpg" alt="Book"></div>
-            <div class="card-back">
-              <p>The Sovereign Leader: leading from inner authority after the forge.</p>
-              <div class="card-links">
-                <a href="/book" class="text-link">Learn More →</a>
-                <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="text-link">Buy Here →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pathway-card" tabindex="0" id="speaking">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-speaking.jpg" alt="Speaking"></div>
-            <div class="card-back">
-              <p>Topics that inspire, challenge, and equip leaders to lead with inner authority.</p>
-              <div class="card-links">
-                <a href="/speaking" class="text-link">Explore →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pathway-card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-work-with-me.jpg" alt="Work With Me"></div>
-            <div class="card-back">
-              <p>AI operations strategy and responsible AI implementation lives through Obsidian Rising.</p>
-              <div class="card-links">
-                <a href="/work-with-me" class="text-link">Learn More →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pathway-card" tabindex="0">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-podcast.jpg" alt="Podcast"></div>
-            <div class="card-back">
-              <p>Candid conversations and reflections on leadership, resilience, entrepreneurship, and becoming.</p>
-              <div class="card-links"><a href="/podcast" class="text-link">Listen →</a></div>
-            </div>
-          </div>
-        </div>
-        <div class="pathway-card" tabindex="0" id="portfolio">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-portfolio.jpg" alt="Portfolio"></div>
-            <div class="card-back">
-              <p>Selected work and creative projects, built over the years.</p>
-              <div class="card-links">
-                <a href="/portfolio" class="text-link">Explore →</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pathway-card" tabindex="0" id="contact">
-          <div class="card-inner">
-            <div class="card-front"><img src="assets/card-contact.jpg" alt="Contact"></div>
-            <div class="card-back">
-              <p>Partnerships, media, speaking, or just want to connect? Let's talk.</p>
-              <div class="card-links">
-                <a href="/contact" class="text-link">Connect →</a>
-              </div>
-            </div>
+    </div>
+    <div class="nav-pill-wrap">
+      <a href="/book" class="nav-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v3.5"></path><path d="M16 3v3.5"></path></svg>
+        Book
+      </a>
+      <div class="nav-pill-drop">
+        <div class="nav-pill-drop-inner">
+          <p>The Sovereign Leader: leading from inner authority after the forge.</p>
+          <div class="nav-pill-drop-links">
+            <a href="/book">Learn More →</a>
+            <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD" target="_blank" rel="noopener">Buy Here →</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="final-cta on-dark reveal" id="connect">
-    <div class="wrap">
-      <div>
-        <p class="eyebrow">Let's Create What Matters</p>
-        <h2>Do meaningful work.<br><em>Build what lasts.</em></h2>
-        <p class="support">Meaningful work can take many forms &mdash; whether you're here to read, listen, collaborate, or simply connect, there's a place for you in this world.</p>
-        <a href="/contact" class="ghost-btn">Let's Connect →</a>
+    <div class="nav-pill-wrap">
+      <a href="/contact" class="nav-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="M3.5 6.5L12 13L20.5 6.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Contact
+      </a>
+      <div class="nav-pill-drop">
+        <div class="nav-pill-drop-inner">
+          <p>Partnerships, media, speaking, or just want to connect? Let's talk.</p>
+          <div class="nav-pill-drop-links"><a href="/contact">Connect →</a></div>
+        </div>
       </div>
-      <div></div>
     </div>
-    <svg class="final-cta-feather" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="featherWash" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#c7a25a" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#6b5a80" stop-opacity="0.15"/>
-        </linearGradient>
-      </defs>
-      <path d="M100,10 C130,80 130,200 100,290 C70,200 70,80 100,10 Z" fill="none" stroke="url(#featherWash)" stroke-width="1.4"/>
-      <path d="M100,20 L100,280" stroke="url(#featherWash)" stroke-width="1"/>
-    </svg>
-  </section>
+    <div class="nav-pill-wrap">
+      <a href="/podcast" class="nav-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"></path><path d="M12 18v3"></path></svg>
+        Podcast
+      </a>
+      <div class="nav-pill-drop">
+        <div class="nav-pill-drop-inner">
+          <p>Candid conversations and reflections on leadership, resilience, entrepreneurship, and becoming.</p>
+          <div class="nav-pill-drop-links"><a href="/podcast">Listen →</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-pill-wrap">
+      <a href="/work-with-me" class="nav-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11.5" rx="1.4"></rect><path d="M8.5 8V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"></path><path d="M3 13h18"></path></svg>
+        Work With Me
+      </a>
+      <div class="nav-pill-drop">
+        <div class="nav-pill-drop-inner">
+          <p>AI operations strategy and responsible AI implementation lives through Obsidian Rising.</p>
+          <div class="nav-pill-drop-links"><a href="/work-with-me">Learn More →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <svg class="mark" style="color: var(--gold-soft); width:26px;height:26px;"><use href="#mark-glyph"/></svg>
-        <span class="wordmark">Gladian Rivera</span>
-      </div>
-      <nav class="footer-nav">
-        <a href="#top">Home</a>
-        <a href="#about">About</a>
-        <a href="/work-with-me">Work With Me</a>
-        <a href="/book">Book</a>
-        <a href="/podcast">Podcast</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/contact">Contact</a>
-      </nav>
-      <div class="footer-connect">
-        <p class="eyebrow">Stay Connected</p>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"/></svg></a>
-          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
-      <div class="footer-legal">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms &amp; Conditions</a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-
-
-<script src="script.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>gsap.registerPlugin(ScrollTrigger);</script>
+<script src="home-sequence.js"></script>
 </body>
 </html>
