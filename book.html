@@ -20,7 +20,9 @@
 <meta name="twitter:title" content="The Sovereign Leader — Gladian Rivera">
 <meta name="twitter:description" content="Leading From Inner Authority After the Forge — a book by Gladian Rivera.">
 <meta name="twitter:image" content="https://gladianrivera.com/assets/book-cover.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,229 +39,491 @@
   }
 }
 </script>
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #ff91a4;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- floating nav ---------- */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(255, 145, 164, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  /* ---------- hero: plain dark hero, no crystal image ---------- */
+  .page-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(8rem, 18vh, 10rem) 1.5rem clamp(3rem, 6vw, 4rem);
+    background: var(--background);
+  }
+  .page-hero-inner { max-width: 760px; }
+  .page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.6rem;
+  }
+  .page-hero h1 {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.8rem, 7vw, 5rem);
+    line-height: 1.08;
+    color: var(--foreground);
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero h1 .accent {
+    font-style: italic;
+    color: var(--purple-bright);
+    text-shadow: 0 0 34px rgba(214, 188, 244, 0.45), 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero .book-subhead {
+    margin: 0 0 1.6rem;
+    font-family: var(--font-display);
+    font-style: normal;
+    font-weight: 500;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    color: var(--foreground);
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero .lede {
+    margin: 0 0 2.2rem;
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    border-radius: 0.25rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+  }
+  .btn-solid:hover { background: #fff; }
+
+  /* ---------- book intro: cover + framing copy ---------- */
+  .split-section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+  .split-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .book-cover-img {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1410 / 2250;
+    object-fit: cover;
+    border-radius: 0.35rem;
+    border: 1px solid var(--ghost-border);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+    display: block;
+  }
+  .split-grid .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--salmon);
+    margin: 0 0 1rem;
+  }
+  .split-grid h2 {
+    margin: 0 0 1.2rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    line-height: 1.2;
+  }
+  .split-grid p {
+    margin: 0 0 1.3rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .ghost-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border: 1px solid var(--salmon);
+    border-radius: 0.25rem;
+    color: var(--salmon);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .ghost-btn:hover { background: var(--salmon); color: #1a0f12; }
+
+  @media (max-width: 800px) { .split-grid { grid-template-columns: 1fr; } .book-cover-img { max-width: 260px; } }
+
+  /* ---------- advance praise ---------- */
+  .praise-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .section-heading {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .praise-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .praise-card {
+    padding: 1.8rem 1.7rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease;
+  }
+  .praise-card:hover { border-color: rgba(31, 174, 116, 0.4); }
+  .praise-card blockquote {
+    margin: 0 0 1.4rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: var(--foreground);
+  }
+  .praise-card .quote-accent {
+    padding-left: 0.9rem;
+    border-left: 2px solid var(--emerald-bright);
+  }
+  .praise-card cite {
+    display: block;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    color: var(--foreground);
+  }
+  .praise-card .praise-role {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    color: rgba(229, 226, 225, 0.6);
+  }
+
+  @media (max-width: 800px) { .praise-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- the framework: numbered pillar list (same pattern as Work With Me) ---------- */
+  .pillars-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .pillar {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 2rem;
+    padding: 2.4rem 0;
+    border-bottom: 1px solid var(--ghost-border);
+    transition: background 0.3s ease;
+  }
+  .pillar:first-child { border-top: 1px solid var(--ghost-border); }
+  .pillar:hover { background: rgba(255, 255, 255, 0.02); }
+  .pillar-num {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: rgba(229, 226, 225, 0.35);
+    transition: color 0.3s ease;
+  }
+  .pillar:hover .pillar-num { color: var(--salmon); }
+  .pillar h3 {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  }
+  .pillar p {
+    margin: 0;
+    max-width: 62ch;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: rgba(229, 226, 225, 0.78);
+  }
+
+  @media (max-width: 640px) {
+    .pillar { grid-template-columns: 1fr; gap: 0.5rem; }
+    .pillar-num { font-size: 1rem; }
+  }
+
+  /* ---------- inside the book ---------- */
+  .inside-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .inside-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .inside-card {
+    padding: 1.8rem 1.7rem;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.5rem;
+    transition: border-color 0.3s ease;
+  }
+  .inside-card:hover { border-color: rgba(214, 188, 244, 0.4); }
+  .inside-card .part-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple-bright);
+    margin: 0 0 0.8rem;
+  }
+  .inside-card h3 {
+    margin: 0 0 0.7rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.25rem;
+  }
+  .inside-card p { margin: 0; font-size: 0.95rem; line-height: 1.65; color: rgba(229, 226, 225, 0.78); }
+
+  @media (max-width: 800px) { .inside-grid { grid-template-columns: 1fr; } }
+
+  .book-cta { padding: 0 0 clamp(4rem, 8vw, 6.5rem); text-align: center; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--ghost-border); padding: 4rem 0 2.5rem; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229, 226, 225, 0.5); margin: 0 0 0.8rem; }
+  .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.6rem; border-top: 1px solid var(--ghost-border); font-size: 0.76rem; color: rgba(229, 226, 225, 0.5); }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
+  @media (max-width: 700px) { .footer-top { grid-template-columns: 1fr; } .footer-connect { text-align: left; } }
+</style>
 </head>
 <body>
 
-
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="mark-glyph" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="24" y1="4" x2="24" y2="12"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <line x1="4" y1="24" x2="12" y2="24"/>
-        <line x1="36" y1="24" x2="44" y2="24"/>
-        <line x1="10.5" y1="10.5" x2="15.5" y2="15.5"/>
-        <line x1="32.5" y1="32.5" x2="37.5" y2="37.5"/>
-        <line x1="37.5" y1="10.5" x2="32.5" y2="15.5"/>
-        <line x1="15.5" y1="32.5" x2="10.5" y2="37.5"/>
-      </g>
-      <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-compass" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="1.2"/>
-      <path d="M24 12 L28 22 L24 26 L20 22 Z" fill="currentColor" stroke="none" opacity="0.85"/>
-      <path d="M24 36 L20 26 L24 22 L28 26 Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      <circle cx="24" cy="24" r="1.6" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-lotus" viewBox="0 0 48 48">
-      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-        <path d="M24 34 C24 22 18 16 12 14 C13 24 18 31 24 34 Z"/>
-        <path d="M24 34 C24 22 30 16 36 14 C35 24 30 31 24 34 Z"/>
-        <path d="M24 34 C24 20 24 14 24 10 C24 14 24 20 24 34 Z"/>
-      </g>
-    </symbol>
-    <symbol id="icon-human" viewBox="0 0 48 48">
-      <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round">
-        <path d="M12 32 C12 22 17 16 24 16 C31 16 36 22 36 32"/>
-        <path d="M8 34 C13 28 18 32 24 26 C30 32 35 28 40 34"/>
-      </g>
-    </symbol>
-    <symbol id="icon-horizon" viewBox="0 0 48 48">
-      <circle cx="24" cy="20" r="8" fill="none" stroke="currentColor" stroke-width="1.2"/>
-      <line x1="8" y1="32" x2="40" y2="32" stroke="currentColor" stroke-width="1.2"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="16" y1="38" x2="14" y2="38"/>
-        <line x1="22" y1="38" x2="20" y2="38"/>
-        <line x1="30" y1="38" x2="28" y2="38"/>
-        <line x1="36" y1="38" x2="34" y2="38"/>
-      </g>
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <line x1="7.5" y1="10" x2="7.5" y2="17"/>
-        <circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-        <path d="M12 17v-4.2c0-1.5 1-2.3 2.3-2.3s2.2.8 2.2 2.3V17"/>
-        <line x1="12" y1="10" x2="12" y2="17"/>
-      </g>
-    </symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4.2"/>
-        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-    <symbol id="icon-youtube" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-        <rect x="3" y="6" width="18" height="12" rx="3"/>
-        <path d="M10.5 9.5 L15.5 12 L10.5 14.5 Z" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-    <symbol id="icon-email" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round">
-        <rect x="3" y="5" width="18" height="14" rx="2"/>
-        <path d="M4 6.5 L12 13 L20 6.5"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header id="site-header">
-  <div class="wrap">
-    <a href="/" class="brand">
-      <svg class="mark" style="color: var(--gold)"><use href="#mark-glyph"/></svg>
-      <span class="wordmark">Gladian Rivera</span>
-    </a>
-    <nav class="primary-nav">
-      <a href="/">Home</a>
-      <a href="/#about">About</a>
-      <a href="/work-with-me">Work With Me</a>
-      <a href="/book" class="current">Book</a>
-      <a href="/podcast">Podcast</a>
-      <a href="/speaking">Speaking</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/contact">Contact</a>
-      <a href="/#connect" class="ghost-btn">Let's Connect</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
   </div>
-</header>
-
-<div class="mobile-panel" id="mobile-panel">
-  <a href="/">Home</a>
-  <a href="/#about">About</a>
-  <a href="/work-with-me">Work With Me</a>
-  <a href="/book">Book</a>
-  <a href="/podcast">Podcast</a>
-  <a href="/speaking">Speaking</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/contact">Contact</a>
-  <a href="/#connect" class="ghost-btn on-dark">Let's Connect</a>
-</div>
+  <div class="floating-nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast">Podcast</a>
+    <a href="/book" class="current">Book</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
 
 <main id="main-content">
-  <section class="book-page">
-    <div class="book-hero on-dark">
-      <div class="wrap book-hero-grid">
-        <div class="book-cover-frame"><img class="book-cover-img" src="assets/book-cover.jpg" alt="The Sovereign Leader book cover"></div>
-        <div class="book-hero-copy">
-          <p class="eyebrow">The Book</p>
-          <h1>The Sovereign Leader</h1>
-          <p class="book-subhead">Leading From Inner Authority After the Forge</p>
-          <p class="lede">A framework for leading complex systems without losing yourself inside them &mdash; built on clarity, self-trust, and wholeness.</p>
-          <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy &rarr;</a>
-        </div>
-      </div>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">The Book</p>
+      <h1>The Sovereign <span class="accent">Leader</span></h1>
+      <p class="book-subhead">Leading From Inner Authority After the Forge</p>
+      <p class="lede">A framework for leading complex systems without losing yourself inside them — built on clarity, self-trust, and wholeness.</p>
+      <a class="btn-solid" href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener">Order Your Copy →</a>
     </div>
+  </section>
 
-    <div class="book-praise">
-      <div class="wrap">
-        <p class="eyebrow">Advance Praise</p>
-        <div class="praise-grid">
-          <blockquote>
-            <p>This book is so full of wisdom and lessons learned that the world needs to hear.</p>
-            <cite>Dr. Sheila R. Trapp, Owner, S. Renae Consultant Group</cite>
-          </blockquote>
-          <blockquote>
-            <p>The book could save lives. It's an amazing read. It hit home. I loved it.</p>
-            <cite>Anthony Gangi, Host of Tier Talk &amp; YouTube Influencer</cite>
-          </blockquote>
-          <blockquote>
-            <p>The book also dives into how systems can either diminish you or elevate you.</p>
-            <cite>Alba, Founder &amp; CEO, Maro Solution</cite>
-          </blockquote>
-        </div>
+  <section class="split-section">
+    <div class="wrap split-grid">
+      <img class="book-cover-img" src="assets/book-cover.jpg" alt="The Sovereign Leader book cover">
+      <div>
+        <p class="eyebrow">The Story Behind It</p>
+        <h2>Built from the forge, not around it.</h2>
+        <p>The Sovereign Leader was written from inside the very systems it examines — the silences, the pressure to perform a role instead of live a truth, and the slow work of rebuilding an internal compass strong enough to lead from.</p>
+        <p>It's not a theory book. It's a framework for staying whole while the weight of leadership is real.</p>
+        <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy →</a>
       </div>
     </div>
+  </section>
 
-    <div class="book-framework">
-      <div class="wrap">
-        <p class="eyebrow">The Framework</p>
-        <div class="framework-grid">
-          <div class="pillar">
-            <span class="pillar-num">I.</span>
-            <h3>Clarity</h3>
-            <p>Knowing what you actually think, value, and choose &mdash; separate from the noise of institutional expectation, external pressure, and roles.</p>
+  <section class="praise-section">
+    <div class="wrap">
+      <p class="section-heading">Advance Praise</p>
+      <div class="praise-grid">
+        <div class="praise-card">
+          <blockquote>&ldquo;This book is so full of wisdom and lessons learned that the world needs to hear.&rdquo;</blockquote>
+          <div class="quote-accent">
+            <cite>Dr. Sheila R. Trapp</cite>
+            <span class="praise-role">Owner, S. Renae Consultant Group</span>
           </div>
-          <div class="pillar">
-            <span class="pillar-num">II.</span>
-            <h3>Self-Trust</h3>
-            <p>The practice of honoring your own discernment. Not confidence performed for others, but the quiet, unshakeable knowing that your internal compass is reliable.</p>
+        </div>
+        <div class="praise-card">
+          <blockquote>&ldquo;The book could save lives. It's an amazing read. It hit home. I loved it.&rdquo;</blockquote>
+          <div class="quote-accent">
+            <cite>Anthony Gangi</cite>
+            <span class="praise-role">Host of Tier Talk &amp; YouTube Influencer</span>
           </div>
-          <div class="pillar">
-            <span class="pillar-num">III.</span>
-            <h3>Wholeness</h3>
-            <p>Integration, not balance. Bringing all of who you are into how you lead.</p>
+        </div>
+        <div class="praise-card">
+          <blockquote>&ldquo;The book also dives into how systems can either diminish you or elevate you.&rdquo;</blockquote>
+          <div class="quote-accent">
+            <cite>Alba</cite>
+            <span class="praise-role">Founder &amp; CEO, Maro Solution</span>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="book-inside on-dark">
-      <div class="wrap">
-        <p class="eyebrow">Inside the Book</p>
-        <div class="inside-grid">
-          <div>
-            <h3>Part I &mdash; The Forge</h3>
-            <p>Where you examine what shaped you: the systems, the silences, and the stories you inherited.</p>
-          </div>
-          <div>
-            <h3>Part II &mdash; The Pillars</h3>
-            <p>A deep build of the three-pillar framework &mdash; Clarity, Self-Trust, and Wholeness &mdash; explored not as concepts but as lived, practiced disciplines.</p>
-          </div>
-          <div>
-            <h3>Part III &mdash; The Practice</h3>
-            <p>How sovereign leadership operates in real conditions: in rooms that weren't built for you, in decisions that carry weight.</p>
-          </div>
+  <section class="pillars-section">
+    <div class="wrap">
+      <p class="section-heading">The Framework</p>
+
+      <div class="pillar">
+        <span class="pillar-num">I.</span>
+        <div>
+          <h3>Clarity</h3>
+          <p>Knowing what you actually think, value, and choose — separate from the noise of institutional expectation, external pressure, and roles.</p>
         </div>
-        <div class="book-cta-inline">
-          <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD/ref=sr_1_1?crid=22RIZK3DUZQWJ&dib=eyJ2IjoiMSJ9.XJDtDiI0iqZipUcgfZ2lTbHQxLudho0INpS8cKm19cOES7RmTTYQRDSpR6ryQijdhOT4PXt7-kkd7wHQA3OBh-5tODuUOe2ix88UKNgPnPo.k0VsxbwrmmioDn6qNms8eJEpKA9-UdHsKALeJg34bAc&dib_tag=se&keywords=the+sovereign+leader+gladian&qid=1786569523&sprefix=the+soverign+leader+gladian%2Caps%2C268&sr=8-1" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy &rarr;</a>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">II.</span>
+        <div>
+          <h3>Self-Trust</h3>
+          <p>The practice of honoring your own discernment. Not confidence performed for others, but the quiet, unshakeable knowing that your internal compass is reliable.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <span class="pillar-num">III.</span>
+        <div>
+          <h3>Wholeness</h3>
+          <p>Integration, not balance. Bringing all of who you are into how you lead.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="inside-section">
+    <div class="wrap">
+      <p class="section-heading">Inside the Book</p>
+      <div class="inside-grid">
+        <div class="inside-card">
+          <span class="part-label">Part I</span>
+          <h3>The Forge</h3>
+          <p>Where you examine what shaped you: the systems, the silences, and the stories you inherited.</p>
+        </div>
+        <div class="inside-card">
+          <span class="part-label">Part II</span>
+          <h3>The Pillars</h3>
+          <p>A deep build of the three-pillar framework — Clarity, Self-Trust, and Wholeness — explored not as concepts but as lived, practiced disciplines.</p>
+        </div>
+        <div class="inside-card">
+          <span class="part-label">Part III</span>
+          <h3>The Practice</h3>
+          <p>How sovereign leadership operates in real conditions: in rooms that weren't built for you, in decisions that carry weight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-cta">
+    <a class="btn-solid" href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD" target="_blank" rel="noopener">Order Your Copy →</a>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">
-        <svg class="mark" style="color: var(--gold-soft); width:26px;height:26px;"><use href="#mark-glyph"/></svg>
-        <span class="wordmark">Gladian Rivera</span>
-      </div>
-      <nav class="footer-nav">
-        <a href="/">Home</a>
-        <a href="/#about">About</a>
-        <a href="/work-with-me">Work With Me</a>
-        <a href="/book">Book</a>
-        <a href="/podcast">Podcast</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/contact">Contact</a>
-      </nav>
+      <div class="footer-brand">Gladian Rivera</div>
       <div class="footer-connect">
         <p class="eyebrow">Stay Connected</p>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"/></svg></a>
-          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
-        </div>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
       </div>
     </div>
     <div class="footer-bottom">
@@ -267,13 +531,12 @@
       <div class="footer-legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
       </div>
     </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
   </div>
 </footer>
 
-
-
-<script src="script.js" defer></script>
 </body>
 </html>
