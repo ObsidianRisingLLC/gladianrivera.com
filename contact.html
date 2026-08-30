@@ -316,9 +316,10 @@
   @media (max-width: 800px) { .contact-layout { grid-template-columns: 1fr; } }
 
   /* ---------- footer ---------- */
-  footer { border-top: 1px solid var(--ghost-border); padding: 4rem 0 2.5rem; }
-  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 3rem; }
-  .footer-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  footer { border-top: 1px solid var(--ghost-border); padding: 2.25rem 0 1.5rem; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 1.75rem; }
+  .footer-brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-logo { width: 84px; height: 84px; border-radius: 50%; }
   .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
   .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
   .footer-nav a:hover { color: var(--salmon); }
@@ -406,7 +407,7 @@
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">Gladian Rivera</div>
+      <div class="footer-brand"><img src="/apple-touch-icon.png" alt="" width="84" height="84" class="footer-logo">Gladian Rivera</div>
       <div class="footer-connect">
         <p class="eyebrow">Stay Connected</p>
         <nav class="footer-nav" style="justify-content: flex-end;">
