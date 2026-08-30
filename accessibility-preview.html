@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility — Gladian Rivera (Preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #ff91a4;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  /* ---------- floating nav ---------- */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(255, 145, 164, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  /* ---------- hero: plain dark hero, no crystal image ---------- */
+  .page-hero {
+    position: relative;
+    min-height: 42vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(8rem, 18vh, 10rem) 1.5rem 3rem;
+    background: var(--background);
+  }
+  .page-hero-inner { max-width: 760px; }
+  .page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.6rem;
+  }
+  .page-hero h1 {
+    margin: 0 0 1.1rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4rem);
+    line-height: 1.08;
+    color: var(--foreground);
+  }
+  .page-hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--purple-bright);
+  }
+  .page-hero .lede {
+    margin: 0;
+    font-size: 0.95rem;
+    color: rgba(229, 226, 225, 0.6);
+  }
+
+  /* ---------- legal prose ---------- */
+  .legal-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .legal-content { max-width: 74ch; margin: 0 auto; }
+  .legal-content p {
+    margin: 0 0 1.4rem;
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .legal-content h2 {
+    margin: 2.6rem 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--foreground);
+  }
+  .legal-content h2:first-child { margin-top: 0; }
+  .legal-content ul { margin: 0 0 1.4rem; padding-left: 1.3rem; }
+  .legal-content li {
+    margin-bottom: 0.7rem;
+    font-size: 1.02rem;
+    line-height: 1.75;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .legal-content strong { color: var(--foreground); }
+  .legal-content .text-link { color: var(--salmon); font-weight: 700; }
+  .legal-content .text-link:hover { color: var(--purple-bright); }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--ghost-border); padding: 4rem 0 2.5rem; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229, 226, 225, 0.5); margin: 0 0 0.8rem; }
+  .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.6rem; border-top: 1px solid var(--ghost-border); font-size: 0.76rem; color: rgba(229, 226, 225, 0.5); }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
+  @media (max-width: 700px) { .footer-top { grid-template-columns: 1fr; } .footer-connect { text-align: left; } }
+</style>
+</head>
+<body>
+
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
+  </div>
+  <div class="floating-nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast">Podcast</a>
+    <a href="/book">Book</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">Legal</p>
+      <h1>Accessibility<em>Statement.</em></h1>
+      <p class="lede">Last updated: August 30, 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <div class="wrap legal-content">
+      <p>Gladian Rivera and Obsidian Rising LLC are committed to making gladianrivera.com usable by as many people as possible, including people who use assistive technology such as screen readers, screen magnifiers, or keyboard-only navigation.</p>
+
+      <h2>Standard We're Working Toward</h2>
+      <p>We aim to meet the <strong>Web Content Accessibility Guidelines (WCAG) 2.1, Level AA</strong>. These guidelines explain how to make web content more accessible for people with disabilities, and more usable for everyone. This site is under active development, and full conformance is a goal we're working toward rather than a claim we're making today.</p>
+
+      <h2>What We've Built With Accessibility In Mind</h2>
+      <ul>
+        <li>Semantic HTML structure — headings, landmarks, and lists are marked up so assistive technology can navigate the page's actual structure, not just its visual layout.</li>
+        <li>Keyboard navigation — the menu, links, and interactive elements can be reached and activated without a mouse.</li>
+        <li>A "skip to content" link on pages with a lot of navigation, so keyboard users don't have to tab through the full menu on every page.</li>
+        <li>Respect for <strong>reduced-motion preferences</strong> — anyone with "reduce motion" set at the OS or browser level sees scroll and entrance animations replaced with their finished, static state instead.</li>
+        <li>Descriptive alt text on meaningful images, and decorative images marked so they're skipped by screen readers.</li>
+        <li>Color combinations chosen for sufficient contrast against this site's dark background, particularly for body text and interactive elements.</li>
+      </ul>
+
+      <h2>Known Limitations</h2>
+      <p>Some parts of this site depend on third-party platforms — including embedded YouTube and Spotify players, and the Formspree contact form service. Their accessibility is controlled by those providers, not by us, though we choose vendors that maintain their own accessibility standards where possible.</p>
+      <p>As a site that leans editorial and cinematic in places, some pages use scroll-driven visuals. Wherever that's the case, we've built a reduced-motion fallback and made sure the same information is available without relying on the animation to convey it.</p>
+
+      <h2>Feedback</h2>
+      <p>If you encounter a barrier using this site, we want to know. Reach out through the <a href="/contact" class="text-link">contact page</a> with a description of the issue, the page it's on, and the assistive technology or browser you were using — we'll work to address it.</p>
+
+      <h2>Ongoing Effort</h2>
+      <p>Accessibility is not a one-time fix; it's maintained as this site continues to grow. This statement will be updated as improvements are made and as new pages are added.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">Gladian Rivera</div>
+      <div class="footer-connect">
+        <p class="eyebrow">Stay Connected</p>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+    </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
