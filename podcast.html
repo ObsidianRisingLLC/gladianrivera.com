@@ -20,7 +20,9 @@
 <meta name="twitter:title" content="The Gladian Rivera Show">
 <meta name="twitter:description" content="Candid conversations on leadership, resilience, entrepreneurship, technology, creativity, and the experiences that shape who we become.">
 <meta name="twitter:image" content="https://gladianrivera.com/assets/podcast-cover.png">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,129 +61,477 @@
   ]
 }
 </script>
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #ff91a4;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- floating nav ---------- */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(255, 145, 164, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  /* ---------- hero: plain dark hero, no crystal image ---------- */
+  .page-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(8rem, 18vh, 10rem) 1.5rem clamp(3rem, 6vw, 4rem);
+    background: var(--background);
+  }
+  .page-hero-inner { max-width: 760px; }
+  .page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.6rem;
+  }
+  .page-hero h1 {
+    margin: 0 0 1.3rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 7vw, 4.8rem);
+    line-height: 1.1;
+    color: var(--foreground);
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--purple-bright);
+    text-shadow: 0 0 34px rgba(214, 188, 244, 0.45), 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero .lede {
+    margin: 0 0 2.4rem;
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; align-items: center; }
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.8rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    border-radius: 0.25rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+  }
+  .btn-solid:hover { background: #fff; }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.7rem;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.25rem;
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: border-color 0.3s ease;
+  }
+  .btn-ghost:hover { border-color: var(--emerald-bright); }
+
+  /* ---------- philosophy / intro split ---------- */
+  .split-section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+  .split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.5rem, 3.5vw, 3rem);
+    align-items: start;
+  }
+  .podcast-cover-img {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    border: 1px solid var(--ghost-border);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    margin: 0 0 2rem;
+    display: block;
+  }
+  .split-grid .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--salmon);
+    margin: 0 0 1.1rem;
+  }
+  .split-grid h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 1.15;
+  }
+  .split-grid h2 em { font-style: italic; font-weight: 500; color: var(--emerald-bright); }
+  .split-grid p {
+    margin: 0 0 1.3rem;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .split-grid p.quote {
+    padding-left: 1.2rem;
+    border-left: 1px solid var(--ghost-border);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: rgba(229, 226, 225, 0.65);
+  }
+  @media (max-width: 800px) { .split-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- episodes ---------- */
+  .episodes-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .section-heading {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .episode {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 2rem;
+    padding: 2.6rem 0;
+    border-bottom: 1px solid var(--ghost-border);
+    transition: background 0.3s ease;
+  }
+  .episode:hover { background: rgba(255, 255, 255, 0.02); }
+  .episode-num {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: rgba(214, 188, 244, 0.25);
+    transition: color 0.4s ease;
+  }
+  .episode:hover .episode-num { color: var(--purple-bright); }
+  .episode h3 {
+    margin: 0 0 0.8rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+    transition: color 0.3s ease;
+  }
+  .episode:hover h3 { color: var(--emerald-bright); }
+  .episode p {
+    margin: 0 0 1.1rem;
+    max-width: 62ch;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.8);
+  }
+  .episode-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+  .episode-tags span {
+    padding: 0.28rem 0.75rem;
+    font-size: 0.68rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--purple-bright);
+    background: rgba(214, 188, 244, 0.1);
+    border: 1px solid rgba(214, 188, 244, 0.25);
+    border-radius: 999px;
+  }
+  .episode-links { display: flex; flex-wrap: wrap; gap: 1.6rem; }
+  .episode-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--salmon);
+  }
+  .episode-links a:hover { color: #fff; }
+
+  @media (max-width: 640px) {
+    .episode { grid-template-columns: 1fr; gap: 0.6rem; }
+    .episode-num { font-size: 1.6rem; }
+  }
+
+  /* ---------- press / "as seen in" ---------- */
+  .press-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .press-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .press-card {
+    display: block;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.015);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .press-card:hover { border-color: var(--emerald-bright); transform: translateY(-3px); }
+  .press-thumb { aspect-ratio: 16 / 9; overflow: hidden; }
+  .press-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .press-card-body { padding: 1.1rem 1.3rem 1.4rem; }
+  .press-show {
+    margin: 0 0 0.4rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+  }
+  .press-card h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--foreground);
+  }
+  .press-card p.desc { margin: 0; font-size: 0.85rem; line-height: 1.55; color: rgba(229, 226, 225, 0.72); }
+
+  @media (max-width: 800px) { .press-grid { grid-template-columns: 1fr; } }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--ghost-border); padding: 4rem 0 2.5rem; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 3rem; }
+  .footer-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229, 226, 225, 0.5); margin: 0 0 0.8rem; }
+  .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.6rem; border-top: 1px solid var(--ghost-border); font-size: 0.76rem; color: rgba(229, 226, 225, 0.5); }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
+  @media (max-width: 700px) { .footer-top { grid-template-columns: 1fr; } .footer-connect { text-align: left; } }
+</style>
 </head>
-<body class="podcast-page">
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="mark-glyph" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="24" y1="4" x2="24" y2="12"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <line x1="4" y1="24" x2="12" y2="24"/>
-        <line x1="36" y1="24" x2="44" y2="24"/>
-        <line x1="10.5" y1="10.5" x2="15.5" y2="15.5"/>
-        <line x1="32.5" y1="32.5" x2="37.5" y2="37.5"/>
-        <line x1="37.5" y1="10.5" x2="32.5" y2="15.5"/>
-        <line x1="15.5" y1="32.5" x2="10.5" y2="37.5"/>
-      </g>
-      <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <line x1="7.5" y1="10" x2="7.5" y2="17"/>
-        <circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-        <path d="M12 17v-4.2c0-1.5 1-2.3 2.3-2.3s2.2.8 2.2 2.3V17"/>
-        <line x1="12" y1="10" x2="12" y2="17"/>
-      </g>
-    </symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4.2"/>
-        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
+<body>
+
 <a class="skip-link" href="#main-content">Skip to content</a>
-<header id="site-header">
-  <div class="wrap">
-    <a href="/" class="brand"><svg class="mark" style="color: var(--gold)"><use href="#mark-glyph"/></svg><span class="wordmark">Gladian Rivera</span></a>
-    <nav class="primary-nav">
-      <a href="/">Home</a><a href="/#about">About</a><a href="/work-with-me">Work With Me</a><a href="/book">Book</a><a href="/podcast" class="current">Podcast</a><a href="/speaking">Speaking</a><a href="/portfolio">Portfolio</a><a href="/contact">Contact</a><a href="/#connect" class="ghost-btn">Let's Connect</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
   </div>
-</header>
-<div class="mobile-panel" id="mobile-panel">
-  <a href="/">Home</a><a href="/#about">About</a><a href="/work-with-me">Work With Me</a><a href="/book">Book</a><a href="/podcast">Podcast</a><a href="/speaking">Speaking</a><a href="/portfolio">Portfolio</a><a href="/contact">Contact</a><a href="/#connect" class="ghost-btn on-dark">Let's Connect</a>
-</div>
+  <div class="floating-nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast" class="current">Podcast</a>
+    <a href="/book">Book</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
 <main id="main-content">
-  <section class="podcast-hero on-dark">
-    <div class="wrap podcast-hero-grid">
-      <div class="podcast-art"><img src="assets/podcast-cover.png" alt="The Gladian Rivera Show podcast cover art"></div>
-      <div class="podcast-hero-copy"><p class="eyebrow">A new podcast</p><h1>The Gladian<br><em>Rivera Show</em></h1><p class="lede">Candid conversations and personal reflections on leadership, resilience, entrepreneurship, technology, creativity, and the experiences that shape who we become.</p><div class="podcast-actions"><a class="ghost-btn" href="https://www.youtube.com/watch?v=8UGfBGkEKRU" target="_blank" rel="noopener">Watch Latest Episode →</a><a class="podcast-text-link" href="https://open.spotify.com/episode/71zvxLFzYxJvD7eXlbNgpH" target="_blank" rel="noopener">Listen on Spotify</a><a class="podcast-text-link" href="#episodes">Explore the show</a></div></div>
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="eyebrow">A New Podcast</p>
+      <h1>The Gladian<em>Rivera Show</em></h1>
+      <p class="lede">Candid conversations and personal reflections on leadership, resilience, entrepreneurship, technology, creativity, and the experiences that shape who we become.</p>
+      <div class="hero-actions">
+        <a class="btn-solid" href="https://www.youtube.com/watch?v=8UGfBGkEKRU" target="_blank" rel="noopener">Watch Latest Episode →</a>
+        <a class="btn-ghost" href="https://open.spotify.com/episode/71zvxLFzYxJvD7eXlbNgpH" target="_blank" rel="noopener">Listen on Spotify</a>
+      </div>
     </div>
   </section>
-  <section class="podcast-intro on-light reveal"><div class="wrap podcast-intro-grid"><div><p class="eyebrow">Ideas. Impact. Transformation.</p><h2>Start before<br><em>you feel ready.</em></h2></div><div><p>Some conversations are polished. Others are honest. The Gladian Rivera Show makes room for both—bold ideas, lived experience, and the messy reality of becoming.</p><p>Each episode is an invitation to question convention, move through uncertainty, and build a life on your own terms.</p></div></div></section>
-  <section class="episodes-section reveal" id="episodes"><div class="wrap"><p class="eyebrow">Episodes</p><div class="episode-list">
-    <div class="episode-card"><div class="episode-number">03</div><div><h2>The Power of Presence</h2><p>Most entrepreneurs are chasing attention — the real competitive advantage is the ability to give it. Gladian makes the case that presence is a business asset, a trust builder, and one of the last human advantages left in an AI-driven world.</p><div class="episode-meta">Presence · Leadership · Trust · Human Behavior</div><div class="episode-links"><a class="text-link" href="https://open.spotify.com/episode/71zvxLFzYxJvD7eXlbNgpH" target="_blank" rel="noopener">Listen on Spotify →</a></div></div></div>
-    <div class="episode-card"><div class="episode-number">02</div><div><h2>Why Resilience Alone Is Not Enough to Protect You</h2><p>Resilience gets you through — but it isn't a strategy on its own. Gladian breaks down what actually protects you when resilience alone runs out: boundaries, systems, and support built before you need them.</p><div class="episode-meta">Resilience · Boundaries · Protection · Personal Growth</div><div class="episode-links"><a class="text-link" href="https://www.youtube.com/watch?v=8UGfBGkEKRU" target="_blank" rel="noopener">Watch on YouTube →</a><a class="text-link" href="https://open.spotify.com/episode/4za78bmTBKmV6UmO3TwqTv" target="_blank" rel="noopener">Listen on Spotify →</a></div></div></div>
-    <div class="episode-card"><div class="episode-number">01</div><div><h2>The Audacity of Resilience</h2><p>What does it take to start before you feel ready? Gladian opens up about the eight-month delay before recording her first episode, the fear of stepping out from behind the curtain, and why beginning can be an act of resilience.</p><div class="episode-meta">Leadership · Courage · Entrepreneurship · Personal Growth</div><div class="episode-links"><a class="text-link" href="https://youtu.be/jR3g5dnTsKg" target="_blank" rel="noopener">Watch on YouTube →</a><a class="text-link" href="https://open.spotify.com/episode/5lKW4Bp89bSOeTNOLklVp0" target="_blank" rel="noopener">Listen on Spotify →</a></div></div></div>
-  </div></div></section>
-  <section class="press-section on-light reveal">
+
+  <section class="split-section">
+    <div class="wrap split-grid">
+      <div>
+        <img class="podcast-cover-img" src="assets/podcast-cover.png" alt="The Gladian Rivera Show cover art">
+        <p class="eyebrow">Ideas. Impact. Transformation.</p>
+        <h2>Start before<br><em>you feel ready.</em></h2>
+      </div>
+      <div>
+        <p>Some conversations are polished. Others are honest. The Gladian Rivera Show makes room for both — bold ideas, lived experience, and the messy reality of becoming.</p>
+        <p class="quote">Each episode is an invitation to question convention, move through uncertainty, and build a life on your own terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="episodes-section" id="episodes">
     <div class="wrap">
-      <p class="eyebrow">As Seen In</p>
+      <p class="section-heading">Episodes — Ones I Made</p>
+
+      <article class="episode">
+        <span class="episode-num">03</span>
+        <div>
+          <h3>The Power of Presence</h3>
+          <p>Most entrepreneurs are chasing attention — the real competitive advantage is the ability to give it. Gladian makes the case that presence is a business asset, a trust builder, and one of the last human advantages left in an AI-driven world.</p>
+          <div class="episode-tags"><span>Presence</span><span>Leadership</span><span>Trust</span><span>Human Behavior</span></div>
+          <div class="episode-links">
+            <a href="https://open.spotify.com/episode/71zvxLFzYxJvD7eXlbNgpH" target="_blank" rel="noopener">Listen on Spotify →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="episode">
+        <span class="episode-num">02</span>
+        <div>
+          <h3>Why Resilience Alone Is Not Enough to Protect You</h3>
+          <p>Resilience gets you through — but it isn't a strategy on its own. Gladian breaks down what actually protects you when resilience alone runs out: boundaries, systems, and support built before you need them.</p>
+          <div class="episode-tags"><span>Resilience</span><span>Boundaries</span><span>Protection</span><span>Personal Growth</span></div>
+          <div class="episode-links">
+            <a href="https://www.youtube.com/watch?v=8UGfBGkEKRU" target="_blank" rel="noopener">Watch on YouTube →</a>
+            <a href="https://open.spotify.com/episode/4za78bmTBKmV6UmO3TwqTv" target="_blank" rel="noopener">Listen on Spotify →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="episode">
+        <span class="episode-num">01</span>
+        <div>
+          <h3>The Audacity of Resilience</h3>
+          <p>What does it take to start before you feel ready? Gladian opens up about the eight-month delay before recording her first episode, the fear of stepping out from behind the curtain, and why beginning can be an act of resilience.</p>
+          <div class="episode-tags"><span>Leadership</span><span>Courage</span><span>Entrepreneurship</span><span>Personal Growth</span></div>
+          <div class="episode-links">
+            <a href="https://youtu.be/jR3g5dnTsKg" target="_blank" rel="noopener">Watch on YouTube →</a>
+            <a href="https://open.spotify.com/episode/5lKW4Bp89bSOeTNOLklVp0" target="_blank" rel="noopener">Listen on Spotify →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="press-section">
+    <div class="wrap">
+      <p class="section-heading">As Seen In — Ones I Was On</p>
       <div class="press-grid">
         <a class="press-card" href="https://www.youtube.com/watch?v=W6Dqp3-Fom0&t=17s" target="_blank" rel="noopener">
           <div class="press-thumb"><img src="https://i.ytimg.com/vi/W6Dqp3-Fom0/hqdefault.jpg" alt="Gladian Rivera interview thumbnail" loading="lazy"></div>
-          <p class="press-show">Divine Grace Corcio</p>
-          <h3>The Sovereign Leader</h3>
-          <p>On operations consulting, scalable systems, and AI integration for growing businesses.</p>
+          <div class="press-card-body">
+            <p class="press-show">Divine Grace Corcio</p>
+            <h3>The Sovereign Leader</h3>
+            <p class="desc">On operations consulting, scalable systems, and AI integration for growing businesses.</p>
+          </div>
         </a>
         <a class="press-card" href="https://youtu.be/ei5kOs-6ZgA" target="_blank" rel="noopener">
           <div class="press-thumb"><img src="https://i.ytimg.com/vi/ei5kOs-6ZgA/hqdefault.jpg" alt="Refine &amp; Shine Podcast interview thumbnail" loading="lazy"></div>
-          <p class="press-show">Refine &amp; Shine Podcast &middot; Ep. 139</p>
-          <h3>Burned Out and Overwhelmed?</h3>
-          <p>On leadership, burnout, business systems, and the evolving role of AI at work.</p>
+          <div class="press-card-body">
+            <p class="press-show">Refine &amp; Shine Podcast · Ep. 139</p>
+            <h3>Burned Out and Overwhelmed?</h3>
+            <p class="desc">On leadership, burnout, business systems, and the evolving role of AI at work.</p>
+          </div>
         </a>
         <a class="press-card" href="https://youtu.be/viHlMkakkQc" target="_blank" rel="noopener">
           <div class="press-thumb"><img src="https://i.ytimg.com/vi/viHlMkakkQc/hqdefault.jpg" alt="Get Rooted Radio interview thumbnail" loading="lazy"></div>
-          <p class="press-show">Get Rooted Radio &middot; Erica Gifford Mills</p>
-          <h3>Resilience, Redemption, and the Ripple Effects</h3>
-          <p>On healing, accountability, and overcoming vicarious trauma.</p>
+          <div class="press-card-body">
+            <p class="press-show">Get Rooted Radio · Erica Gifford Mills</p>
+            <h3>Resilience, Redemption, and the Ripple Effects</h3>
+            <p class="desc">On healing, accountability, and overcoming vicarious trauma.</p>
+          </div>
         </a>
       </div>
     </div>
   </section>
-  <section class="podcast-cta on-dark"><div class="wrap"><div><p class="eyebrow">The conversation continues</p><h2>Subscribe, listen,<br><em>and begin anyway.</em></h2><p class="support">New episodes land on YouTube and Spotify. If this one resonates, share it with someone who's been waiting for permission to begin.</p><div class="podcast-actions"><a class="ghost-btn" href="https://www.youtube.com/watch?v=8UGfBGkEKRU" target="_blank" rel="noopener">Watch Latest Episode →</a><a class="podcast-text-link" href="https://open.spotify.com/episode/71zvxLFzYxJvD7eXlbNgpH" target="_blank" rel="noopener">Listen on Spotify →</a></div></div><div></div></div>
-    <svg class="podcast-cta-feather" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="podcastFeatherWash" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#c7a25a" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#6b5a80" stop-opacity="0.15"/>
-        </linearGradient>
-      </defs>
-      <path d="M100,10 C130,80 130,200 100,290 C70,200 70,80 100,10 Z" fill="none" stroke="url(#podcastFeatherWash)" stroke-width="1.4"/>
-      <path d="M100,20 L100,280" stroke="url(#podcastFeatherWash)" stroke-width="1"/>
-    </svg>
-  </section>
+
 </main>
+
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">
-        <svg class="mark" style="color: var(--gold-soft); width:26px;height:26px;"><use href="#mark-glyph"/></svg>
-        <span class="wordmark">Gladian Rivera</span>
-      </div>
-      <nav class="footer-nav">
-        <a href="/">Home</a>
-        <a href="/#about">About</a>
-        <a href="/work-with-me">Work With Me</a>
-        <a href="/book">Book</a>
-        <a href="/podcast">Podcast</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/contact">Contact</a>
-      </nav>
+      <div class="footer-brand">Gladian Rivera</div>
       <div class="footer-connect">
         <p class="eyebrow">Stay Connected</p>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"/></svg></a>
-          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
-        </div>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
       </div>
     </div>
     <div class="footer-bottom">
@@ -189,10 +539,12 @@
       <div class="footer-legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
       </div>
     </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
   </div>
 </footer>
-<script src="script.js" defer></script>
+
 </body>
 </html>
