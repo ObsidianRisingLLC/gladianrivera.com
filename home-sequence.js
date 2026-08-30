@@ -67,7 +67,14 @@
   var BIO_WIN = rangeWindow(15, 18);
   var EXPLORE_WIN = rangeWindow(26, 29);
 
-  var TRAIT_STAGGER_START = 19;
+  // Was 19 — that made the first trait card ("Strategic Mind") start
+  // fading in at frame 17, the exact same frame the bio card is still
+  // fading out. Both live in the same fixed, centered position, so they
+  // cross-faded on top of each other; on mobile (choppier scroll, bigger
+  // per-frame jumps) that collision made Strategic Mind effectively
+  // invisible. Starting one frame later means it begins exactly when the
+  // bio card finishes, instead of overlapping it.
+  var TRAIT_STAGGER_START = 20;
   var TRAIT_SHARED_END = 24;
   var TRAIT_WINS = [0, 1, 2, 3].map(function (i) {
     return staggerWindow(TRAIT_STAGGER_START + i, TRAIT_SHARED_END);

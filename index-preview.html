@@ -220,34 +220,41 @@
     color: rgba(229, 226, 225, 0.8);
   }
 
-  /* Down to 4 shard buttons (from 6) now that Speaking and Portfolio live
-     inside Work With Me — the icon treatment below is specific to this
-     bottom "Explore" cluster on the home page and intentionally isn't
-     mirrored in the top floating-nav on any page. */
+  /* 5 shard buttons, no dropdown — stacked vertically like the trait
+     cards (.trait-stack) instead of a horizontal wrapping row. The old
+     wrapped-row layout, inside a position:fixed/inset:0 container with
+     no scroll, clipped whichever row didn't fit on a short mobile
+     screen — that's what made About/Book disappear on phones. A single
+     column sized to fit comfortably at any viewport height fixes that
+     structurally instead of chasing breakpoints. The hover dropdown
+     (description + secondary links) is gone entirely, on every device
+     — not just hidden on mobile. */
   .nav-buttons-layer {
     position: fixed;
     inset: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.2rem;
+    gap: 1rem;
     padding: 0 1.5rem;
     pointer-events: none;
   }
-  .nav-pill-wrap { display: inline-block; position: relative; opacity: 0; }
+  .nav-pill-wrap { display: block; width: min(400px, 90vw); opacity: 0; }
   .nav-pill {
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 0.8rem;
+    justify-content: center;
+    gap: 0.9rem;
     overflow: hidden;
-    padding: 1.35rem 2.8rem;
+    width: 100%;
+    padding: 1.5rem 2rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: var(--salmon);
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 0.88rem;
+    font-size: 0.95rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     background: #000;
@@ -255,8 +262,8 @@
     pointer-events: auto;
   }
   .nav-pill svg {
-    width: 19px;
-    height: 19px;
+    width: 21px;
+    height: 21px;
     flex-shrink: 0;
     stroke: currentColor;
   }
@@ -275,64 +282,10 @@
   .nav-pill-wrap:hover .nav-pill::after,
   .nav-pill-wrap:focus-within .nav-pill::after { left: 130%; }
 
-  /* The dropdown's own box starts flush against the pill (top: 100%, no
-     gap) — the old `calc(100% + 0.6rem)` left a genuine dead zone that
-     belonged to neither element, and pointer-events snaps to none the
-     instant hover is lost (it isn't part of the transition), so crossing
-     that gap made the card unclickable before the cursor ever arrived.
-     The visual gap now lives INSIDE the dropdown as transparent
-     padding-top, so hovering through that space still counts as hovering
-     a descendant of .nav-pill-wrap — continuous hover, same look. */
-  .nav-pill-drop {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 240px;
-    padding-top: 0.6rem;
-    text-align: left;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    z-index: 5;
-  }
-  .nav-pill-wrap:hover .nav-pill-drop,
-  .nav-pill-wrap:focus-within .nav-pill-drop {
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .nav-pill-drop-inner {
-    padding: 1.1rem 1.2rem;
-    background: #000;
-    border: 1px solid rgba(255,255,255,0.16);
-    transform: translateY(-6px);
-    transition: transform 0.25s ease;
-  }
-  .nav-pill-wrap:hover .nav-pill-drop-inner,
-  .nav-pill-wrap:focus-within .nav-pill-drop-inner {
-    transform: translateY(0);
-  }
-  .nav-pill-drop p {
-    margin: 0 0 0.8rem;
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    line-height: 1.55;
-    color: rgba(255,255,255,0.85);
-  }
-  .nav-pill-drop-links { display: flex; flex-direction: column; gap: 0.4rem; }
-  .nav-pill-drop-links a {
-    color: var(--emerald-bright);
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-  }
-  .nav-pill-drop-links a:hover { color: #fff; }
-
   @media (max-width: 640px) {
-    .nav-pill { padding: 1rem 1.8rem; font-size: 0.76rem; letter-spacing: 0.16em; gap: 0.6rem; }
-    .nav-pill svg { width: 16px; height: 16px; }
-    .nav-pill-drop { width: 210px; }
+    .nav-pill-wrap { width: min(320px, 88vw); }
+    .nav-pill { padding: 1.2rem 1.6rem; font-size: 0.8rem; letter-spacing: 0.14em; gap: 0.7rem; }
+    .nav-pill svg { width: 18px; height: 18px; }
   }
 </style>
 </head>
@@ -401,63 +354,30 @@
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.6"></circle><path d="M4.8 20c1.1-3.6 4-5.6 7.2-5.6s6.1 2 7.2 5.6"></path></svg>
         About
       </a>
-      <div class="nav-pill-drop">
-        <div class="nav-pill-drop-inner">
-          <p>Strategist, author, speaker, and creator working across leadership, technology, and human-centered transformation.</p>
-          <div class="nav-pill-drop-links"><a href="/about">More About Me →</a></div>
-        </div>
-      </div>
     </div>
     <div class="nav-pill-wrap">
       <a href="/book" class="nav-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v3.5"></path><path d="M16 3v3.5"></path></svg>
         Book
       </a>
-      <div class="nav-pill-drop">
-        <div class="nav-pill-drop-inner">
-          <p>The Sovereign Leader: leading from inner authority after the forge.</p>
-          <div class="nav-pill-drop-links">
-            <a href="/book">Learn More →</a>
-            <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD" target="_blank" rel="noopener">Buy Here →</a>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="nav-pill-wrap">
       <a href="/contact" class="nav-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="M3.5 6.5L12 13L20.5 6.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Contact
       </a>
-      <div class="nav-pill-drop">
-        <div class="nav-pill-drop-inner">
-          <p>Partnerships, media, speaking, or just want to connect? Let's talk.</p>
-          <div class="nav-pill-drop-links"><a href="/contact">Connect →</a></div>
-        </div>
-      </div>
     </div>
     <div class="nav-pill-wrap">
       <a href="/podcast" class="nav-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"></path><path d="M12 18v3"></path></svg>
         Podcast
       </a>
-      <div class="nav-pill-drop">
-        <div class="nav-pill-drop-inner">
-          <p>Candid conversations and reflections on leadership, resilience, entrepreneurship, and becoming.</p>
-          <div class="nav-pill-drop-links"><a href="/podcast">Listen →</a></div>
-        </div>
-      </div>
     </div>
     <div class="nav-pill-wrap">
       <a href="/work-with-me" class="nav-pill">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11.5" rx="1.4"></rect><path d="M8.5 8V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"></path><path d="M3 13h18"></path></svg>
         Work With Me
       </a>
-      <div class="nav-pill-drop">
-        <div class="nav-pill-drop-inner">
-          <p>AI operations strategy and responsible AI implementation lives through Obsidian Rising.</p>
-          <div class="nav-pill-drop-links"><a href="/work-with-me">Learn More →</a></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
