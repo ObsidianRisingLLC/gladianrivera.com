@@ -212,7 +212,8 @@
     margin: 0 0 1.4rem;
     opacity: 0;
     transform: translateX(-14px);
-    animation: slide-in-left 2.6s 0.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    filter: grayscale(1);
+    animation: slide-in-left 4s 0.05s ease-in-out forwards;
   }
   .about-copy h1 {
     margin: 0 0 1.6rem;
@@ -222,7 +223,8 @@
     line-height: 1.08;
     opacity: 0;
     transform: translateX(-14px);
-    animation: slide-in-left 2.6s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    filter: grayscale(1);
+    animation: slide-in-left 4s 0.2s ease-in-out forwards;
   }
   .about-copy h1 em {
     font-style: italic;
@@ -237,7 +239,8 @@
     color: rgba(229, 226, 225, 0.82);
     opacity: 0;
     transform: translateX(-14px);
-    animation: slide-in-left 2.6s 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    filter: grayscale(1);
+    animation: slide-in-left 4s 0.35s ease-in-out forwards;
   }
 
   .about-portrait-frame {
@@ -248,7 +251,8 @@
     margin-left: auto;
     opacity: 0;
     transform: translateX(50px);
-    animation: slide-in-right 3.2s 0.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    filter: grayscale(1) brightness(0.7);
+    animation: slide-in-right 5s 0.1s ease-in-out forwards;
   }
   .about-portrait-frame img {
     width: 100%;
@@ -262,10 +266,10 @@
   }
 
   @keyframes slide-in-left {
-    to { opacity: 1; transform: translateX(0); }
+    to { opacity: 1; transform: translateX(0); filter: grayscale(0); }
   }
   @keyframes slide-in-right {
-    to { opacity: 1; transform: translateX(0); }
+    to { opacity: 1; transform: translateX(0); filter: grayscale(0) brightness(1); }
   }
   @media (prefers-reduced-motion: reduce) {
     .about-copy .eyebrow, .about-copy h1, .about-copy .lede, .about-portrait-frame {
