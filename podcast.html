@@ -139,10 +139,66 @@
   }
   .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
 
+  /* Hamburger toggle — hidden by default; the 640px media query below is
+     the only place that reveals it, so desktop/tablet keep the full
+     inline link row exactly as before. */
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--ghost-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 15px;
+    height: 1.5px;
+    background: var(--foreground);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
   @media (max-width: 900px) {
     .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
     .floating-nav-links { gap: 0.2rem; }
     .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  /* Phone only: collapse the link row behind the hamburger toggle so the
+     fixed nav stays a single short line instead of wrapping to two.
+     Desktop/tablet above this breakpoint don't see any of this —
+     .nav-toggle stays display:none until here. */
+  @media (max-width: 640px) {
+    .nav-toggle { display: flex; }
+    .floating-nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.1rem;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--ghost-border);
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .floating-nav-links.is-open { max-height: 400px; padding: 0.5rem 1.1rem 1rem; }
+    .floating-nav-links a { width: 100%; padding: 0.75rem 0.5rem; font-size: 0.85rem; border-radius: 0.35rem; }
   }
 
   /* ---------- hero: plain dark hero, no crystal image ---------- */
@@ -407,7 +463,10 @@
   <div class="floating-nav-brand-group">
     <a href="/" class="floating-nav-brand">Gladian Rivera</a>
   </div>
-  <div class="floating-nav-links">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="floating-nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="floating-nav-links" id="floating-nav-links">
     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/work-with-me">Work With Me</a>
@@ -546,5 +605,24 @@
   </div>
 </footer>
 
+<script>
+(function () {
+  "use strict";
+  var toggle = document.getElementById("nav-toggle");
+  var links = document.getElementById("floating-nav-links");
+  if (!toggle || !links) return;
+  toggle.addEventListener("click", function () {
+    var open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    links.classList.toggle("is-open", !open);
+  });
+  links.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      toggle.setAttribute("aria-expanded", "false");
+      links.classList.remove("is-open");
+    });
+  });
+})();
+</script>
 </body>
 </html>
