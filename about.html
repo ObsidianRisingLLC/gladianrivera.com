@@ -316,6 +316,116 @@
 
   @media (max-width: 800px) { .bio-grid { grid-template-columns: 1fr; } }
 
+  /* ---------- stats strip ---------- */
+  .stats-section { padding: 0 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--ghost-border);
+    border-bottom: 1px solid var(--ghost-border);
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--purple-bright);
+    line-height: 1.1;
+  }
+  .stat-label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.6);
+  }
+  @media (max-width: 700px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; } }
+
+  /* ---------- career journey ---------- */
+  .journey-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .section-heading { margin: 0 0 clamp(2rem, 4vw, 3rem); }
+  .section-heading .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--salmon);
+    margin: 0 0 0.6rem;
+  }
+  .section-heading h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  }
+  .timeline { display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--ghost-border); }
+  .timeline-item { position: relative; padding: 0 0 clamp(2rem, 4vw, 2.75rem) clamp(1.75rem, 3vw, 2.5rem); }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0.35rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--emerald-bright);
+    box-shadow: 0 0 0 4px var(--background);
+  }
+  .timeline-item .timeline-date {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-item h3 {
+    margin: 0 0 0.3rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  .timeline-item p {
+    margin: 0;
+    max-width: 60ch;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.75);
+  }
+
+  /* ---------- credentials & awards ---------- */
+  .credentials-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .credentials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .credential-card {
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.75rem;
+    padding: clamp(1.4rem, 2.5vw, 1.75rem);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .credential-card h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: var(--purple-bright);
+  }
+  .credential-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(229, 226, 225, 0.75);
+  }
+  @media (max-width: 700px) { .credentials-grid { grid-template-columns: 1fr; } }
+
   /* ---------- footer ---------- */
   footer { border-top: 1px solid var(--ghost-border); padding: 2.25rem 0 1.5rem; }
   .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 1.75rem; }
@@ -379,6 +489,100 @@
         <p>She is also the author of <a href="/book"><em>The Sovereign Leader: Leading from Inner Authority After the Forge</em></a>. Her book explores what happens when experience, adversity, discernment, and self-knowledge reshape the way we lead.</p>
         <p>Currently, she is continuing those conversations through <a href="/podcast">The Gladian Rivera Show</a>, a podcast. The podcast holds candid conversations and personal reflections on leadership, mental wellness, entrepreneurship, technology, creativity, and the experiences that shape who we become. And the strange, fascinating experience of being human in a world changing faster than most of us can fully process.</p>
         <p>She is fascinated by the places where seemingly different worlds collide: technology and humanity, logic and intuition, and leadership and identity.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">2024</span>
+          <span class="stat-label">DOJ Director&rsquo;s Award</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">$65M</span>
+          <span class="stat-label">Contracts Evaluated</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">&lt;6mo</span>
+          <span class="stat-label">Reentry Program Launch</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Languages, EN &amp; ES</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="journey-section">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Career Journey</p>
+        <h2>Experience That Matters</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">U.S. Department of Justice</span>
+          <h3>U.S. Attorney&rsquo;s Office, Eastern District of New York</h3>
+          <p>Contributed to operational initiatives within the Eastern District of New York, including co-creating a federal reentry court program. Recipient of the 2024 EOUSA Director&rsquo;s Award for Superior Performance.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Healthcare</span>
+          <h3>Operations &amp; Program Development</h3>
+          <p>Built and optimized operational systems for a healthcare organization, focusing on compliance documentation, staff training, and sustainable process design.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">State Corrections</span>
+          <h3>Institutional Program Management</h3>
+          <p>Developed and implemented programs within complex institutional environments, navigating regulatory requirements while building effective operational infrastructure.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">Research Institutions</span>
+          <h3>Academic &amp; Research Operations</h3>
+          <p>Supported research institutions with operational frameworks, grant compliance, and program sustainability structures.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">2025 &mdash; Present</span>
+          <h3>Founder &amp; CEO, Obsidian Rising LLC</h3>
+          <p>Founded <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener">Obsidian Rising LLC</a> to bring enterprise-level operational expertise to organizations ready to transform, specializing in responsible AI strategy, education, and operational systems design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="credentials-section">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">Recognition</p>
+        <h2>Credentials &amp; Awards</h2>
+      </div>
+      <div class="credentials-grid">
+        <div class="credential-card">
+          <h3>EOUSA Director&rsquo;s Award</h3>
+          <p>National recognition from the Executive Office for U.S. Attorneys for leadership in developing and implementing a federal reentry court program. (2024)</p>
+        </div>
+        <div class="credential-card">
+          <h3>NJ MWBE Certified</h3>
+          <p>Minority Women Business Enterprise certification issued by the State of New Jersey, qualifying Obsidian Rising LLC for MWBE-designated procurement opportunities.</p>
+        </div>
+        <div class="credential-card">
+          <h3>MASCA Board of Trustees</h3>
+          <p>Governance leadership supporting regional correctional systems and professional development initiatives.</p>
+        </div>
+        <div class="credential-card">
+          <h3>Harvard Online</h3>
+          <p>Strategic Execution for Public Leadership, focused on translating strategy into measurable institutional results.</p>
+        </div>
+        <div class="credential-card">
+          <h3>Graduate School USA</h3>
+          <p>Executive Leadership &amp; Change Management training within complex federal environments.</p>
+        </div>
+        <div class="credential-card">
+          <h3>Certified ScrumMaster</h3>
+          <p>Agile delivery, iterative execution, and cross-functional team facilitation.</p>
+        </div>
       </div>
     </div>
   </section>
