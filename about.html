@@ -426,6 +426,55 @@
   }
   @media (max-width: 700px) { .credentials-grid { grid-template-columns: 1fr; } }
 
+  /* ---------- featured in ---------- */
+  .featured-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .featured-card {
+    display: block;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.75rem;
+    padding: clamp(1.4rem, 2.5vw, 1.75rem);
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.25s ease, background 0.25s ease;
+  }
+  .featured-card:hover, .featured-card:focus-visible {
+    border-color: var(--salmon);
+    background: rgba(255, 145, 164, 0.05);
+  }
+  .featured-card .featured-source {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin-bottom: 0.5rem;
+  }
+  .featured-card h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.08rem;
+    color: var(--purple-bright);
+  }
+  .featured-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(229, 226, 225, 0.75);
+  }
+  .featured-card .featured-link {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--salmon);
+  }
+  @media (max-width: 700px) { .featured-grid { grid-template-columns: 1fr; } }
+
   /* ---------- footer ---------- */
   footer { border-top: 1px solid var(--ghost-border); padding: 2.25rem 0 1.5rem; }
   .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 1.75rem; }
@@ -583,6 +632,29 @@
           <h3>Certified ScrumMaster</h3>
           <p>Agile delivery, iterative execution, and cross-functional team facilitation.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">In The Press</p>
+        <h2>Featured In</h2>
+      </div>
+      <div class="featured-grid">
+        <a class="featured-card" href="https://www.justice.gov/usao-edny/pr/nine-eastern-district-new-york-employees-and-one-former-assistant-us-attorney-receive" target="_blank" rel="noopener">
+          <span class="featured-source">U.S. Department of Justice</span>
+          <h3>EOUSA Director&rsquo;s Award for Superior Performance</h3>
+          <p>Recognized alongside colleagues in the Eastern District of New York for developing and implementing a federal reentry court program.</p>
+          <span class="featured-link">Read the press release &rarr;</span>
+        </a>
+        <a class="featured-card" href="https://conglomeratemagazine.com/from-servant-leader-to-sovereign-changemaker-the-birth-of-a-movement/" target="_blank" rel="noopener">
+          <span class="featured-source">Conglomerate Magazine</span>
+          <h3>From Servant Leader to Sovereign Changemaker</h3>
+          <p>A profile on her transition from two decades of public service to purpose-driven entrepreneurship, and the founding of Obsidian Rising LLC.</p>
+          <span class="featured-link">Read the feature &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
