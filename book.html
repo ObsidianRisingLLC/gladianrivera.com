@@ -304,6 +304,21 @@
   }
   .ghost-btn:hover { background: var(--salmon); color: #1a0f12; }
 
+  .book-award {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    margin: 1.8rem 0 2rem;
+  }
+  .book-award img { width: 104px; height: 104px; flex-shrink: 0; }
+  .split-grid .book-award p { margin: 0; line-height: 1.5; }
+  .book-award strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--foreground);
+  }
   @media (max-width: 800px) { .split-grid { grid-template-columns: 1fr; } .book-cover-img { max-width: 260px; } }
 
   /* ---------- advance praise ---------- */
@@ -482,6 +497,10 @@
         <h2>Built from the forge, not around it.</h2>
         <p>The Sovereign Leader was written from inside the very systems it examines — the silences, the pressure to perform a role instead of live a truth, and the slow work of rebuilding an internal compass strong enough to lead from.</p>
         <p>It's not a theory book. It's a framework for staying whole while the weight of leadership is real.</p>
+        <div class="book-award">
+          <img src="assets/award-distinguished-author.webp" alt="International Impact Book Awards — Distinguished Author seal" width="104" height="104" loading="lazy">
+          <p><strong>Distinguished Author</strong>International Impact Book Awards</p>
+        </div>
         <a href="https://www.amazon.com/SOVEREIGN-LEADER-Leading-Inner-Authority/dp/B0GWM6LTQD" target="_blank" rel="noopener" class="ghost-btn">Order Your Copy →</a>
       </div>
     </div>
