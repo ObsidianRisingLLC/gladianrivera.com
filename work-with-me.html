@@ -367,6 +367,16 @@
     color: rgba(229, 226, 225, 0.5);
     margin: 0 0 0.8rem;
   }
+  .footer-sitenav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .footer-sitenav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-sitenav a:hover { color: var(--salmon); }
   .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -405,7 +415,6 @@
     <a href="/work-with-me" class="current">Work With Me</a>
     <a href="/podcast">Podcast</a>
     <a href="/book">Book</a>
-    <a href="/speaking">Speaking</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
@@ -434,18 +443,10 @@
 
   <section class="pillars-section">
     <div class="wrap">
-      <p class="pillars-heading">Areas Of Work</p>
-
-      <div class="pillar">
-        <span class="pillar-num">I.</span>
-        <div>
-          <div class="pillar-head"><h3>Obsidian Rising LLC</h3></div>
-          <p>AI operations strategy and responsible AI implementation for organizations navigating complexity.</p>
-        </div>
-      </div>
+      <p class="pillars-heading">Explore</p>
 
       <div class="pillar" id="speaking">
-        <span class="pillar-num">II.</span>
+        <span class="pillar-num">I.</span>
         <div>
           <div class="pillar-head">
             <h3>Speaking</h3>
@@ -456,38 +457,27 @@
       </div>
 
       <div class="pillar" id="portfolio">
-        <span class="pillar-num">III.</span>
+        <span class="pillar-num">II.</span>
         <div>
           <div class="pillar-head">
             <h3>Portfolio</h3>
-            <span class="pillar-tag">Under Construction</span>
           </div>
           <p>Selected strategic work, creative collaborations, and systems built across leadership, technology, and storytelling — some client work, some personal exploration, all reflecting the same throughline: build things that matter, and build them with care.</p>
-          <a href="/contact" class="text-link">Get In Touch →</a>
+          <a href="/portfolio" class="text-link">See Selected Work →</a>
         </div>
       </div>
 
-      <div class="pillar">
-        <span class="pillar-num">IV.</span>
+      <div class="pillar" id="services">
+        <span class="pillar-num">III.</span>
         <div>
           <div class="pillar-head">
-            <h3>Special Projects</h3>
-            <span class="pillar-tag">Under Construction</span>
+            <h3>Advisory &amp; Special Projects</h3>
           </div>
-          <p>Select engagements and collaborations outside the standard advisory scope. Details coming soon.</p>
+          <p>Ongoing strategic advisory for leaders and organizations, plus select engagements and collaborations outside the standard advisory scope.</p>
+          <a href="/services" class="text-link">Explore Services →</a>
         </div>
       </div>
 
-      <div class="pillar">
-        <span class="pillar-num">V.</span>
-        <div>
-          <div class="pillar-head">
-            <h3>Advisory Services</h3>
-            <span class="pillar-tag">Under Construction</span>
-          </div>
-          <p>Ongoing strategic advisory for leaders and organizations. Full offering details coming soon.</p>
-        </div>
-      </div>
     </div>
   </section>
 </main>
@@ -504,6 +494,12 @@
         </nav>
       </div>
     </div>
+    <nav class="footer-sitenav">
+      <a href="/work-with-me">Work With Me</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+    </nav>
     <div class="footer-bottom">
       <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
       <div class="footer-legal">

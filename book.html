@@ -450,6 +450,16 @@
   .footer-nav a:hover { color: var(--salmon); }
   .footer-connect { text-align: right; }
   .footer-connect .eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229, 226, 225, 0.5); margin: 0 0 0.8rem; }
+  .footer-sitenav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .footer-sitenav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-sitenav a:hover { color: var(--salmon); }
   .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.6rem; border-top: 1px solid var(--ghost-border); font-size: 0.76rem; color: rgba(229, 226, 225, 0.5); }
   .footer-legal { display: flex; gap: 1.2rem; }
   .footer-legal a:hover { color: var(--foreground); }
@@ -474,7 +484,6 @@
     <a href="/work-with-me">Work With Me</a>
     <a href="/podcast">Podcast</a>
     <a href="/book" class="current">Book</a>
-    <a href="/speaking">Speaking</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
@@ -606,6 +615,12 @@
         </nav>
       </div>
     </div>
+    <nav class="footer-sitenav">
+      <a href="/work-with-me">Work With Me</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+    </nav>
     <div class="footer-bottom">
       <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
       <div class="footer-legal">

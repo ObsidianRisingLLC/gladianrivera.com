@@ -428,6 +428,20 @@
     color: rgba(229, 226, 225, 0.8);
   }
 
+  .back-link-row { padding: 5.5rem 0 0; margin-bottom: -4.5rem; position: relative; z-index: 2; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.6);
+    transition: color 0.25s ease;
+  }
+  .back-link:hover { color: var(--salmon); }
+
   /* ---------- footer ---------- */
   footer {
     border-top: 1px solid var(--ghost-border);
@@ -453,6 +467,16 @@
     color: rgba(229, 226, 225, 0.5);
     margin: 0 0 0.8rem;
   }
+  .footer-sitenav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .footer-sitenav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-sitenav a:hover { color: var(--salmon); }
   .footer-bottom {
     display: flex;
     flex-wrap: wrap;
@@ -488,15 +512,17 @@
   <div class="floating-nav-links" id="floating-nav-links">
     <a href="/">Home</a>
     <a href="/about">About</a>
-    <a href="/work-with-me">Work With Me</a>
+    <a href="/work-with-me" class="current">Work With Me</a>
     <a href="/podcast">Podcast</a>
     <a href="/book">Book</a>
-    <a href="/speaking" class="current">Speaking</a>
     <a href="/contact">Contact</a>
   </div>
 </nav>
 
 <main id="main-content">
+    <div class="wrap back-link-row">
+      <a href="/work-with-me" class="back-link">← Work With Me</a>
+    </div>
   <section class="page-hero">
     <div class="page-hero-inner">
       <p class="eyebrow">Speaking</p>
@@ -629,6 +655,12 @@
         </nav>
       </div>
     </div>
+    <nav class="footer-sitenav">
+      <a href="/work-with-me">Work With Me</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+    </nav>
     <div class="footer-bottom">
       <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
       <div class="footer-legal">
