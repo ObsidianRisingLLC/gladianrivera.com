@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Speaking — Gladian Rivera</title>
-<meta name="description" content="Speaking engagements with Gladian Rivera — topics on leadership, resilience, entrepreneurship, and human-centered transformation.">
+<meta name="description" content="Speaking engagements with Gladian Rivera — talks, panels, and workshops on responsible AI, leadership, resilience, and entrepreneurship.">
 <link rel="canonical" href="https://gladianrivera.com/speaking">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -13,136 +13,620 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gladian Rivera">
 <meta property="og:title" content="Speaking — Gladian Rivera">
-<meta property="og:description" content="Speaking engagements with Gladian Rivera — topics on leadership, resilience, entrepreneurship, and human-centered transformation.">
+<meta property="og:description" content="Speaking engagements with Gladian Rivera — talks, panels, and workshops on responsible AI, leadership, resilience, and entrepreneurship.">
 <meta property="og:url" content="https://gladianrivera.com/speaking">
 <meta property="og:image" content="https://gladianrivera.com/assets/social-card.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Speaking — Gladian Rivera">
-<meta name="twitter:description" content="Speaking engagements with Gladian Rivera — topics on leadership, resilience, entrepreneurship, and human-centered transformation.">
+<meta name="twitter:description" content="Speaking engagements with Gladian Rivera — talks, panels, and workshops on responsible AI, leadership, resilience, and entrepreneurship.">
 <meta name="twitter:image" content="https://gladianrivera.com/assets/social-card.jpg">
-<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Event",
+      "name": "Women Entrepreneurs Rock 12: Changing the Game",
+      "startDate": "2026-10-19",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": { "@type": "Place", "name": "Whitechapel Projects" },
+      "organizer": { "@type": "Organization", "name": "America's SBDC New Jersey at Brookdale Community College" },
+      "performer": { "@type": "Person", "@id": "https://gladianrivera.com/#person", "name": "Gladian Rivera" },
+      "description": "Gladian Rivera joins the panel at the twelfth Women Entrepreneurs Rock conference."
+    },
+    {
+      "@type": "Event",
+      "name": "The Efficient Enterprise: Using AI to Streamline Your Business Operations",
+      "startDate": "2026-05-13T17:00",
+      "endDate": "2026-05-13T19:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "The Gateway Family YMCA Wellness Center",
+        "address": { "@type": "PostalAddress", "streetAddress": "1000 Galloping Hill Road", "addressLocality": "Union", "addressRegion": "NJ", "postalCode": "07083" }
+      },
+      "organizer": { "@type": "Organization", "name": "Greater Union Township Chamber of Commerce" },
+      "performer": { "@type": "Person", "@id": "https://gladianrivera.com/#person", "name": "Gladian Rivera" },
+      "description": "A hands-on workshop for small business owners and entrepreneurs on using free and low-cost AI tools to save time and increase operational effectiveness."
+    },
+    {
+      "@type": "Event",
+      "name": "An Introduction to Artificial Intelligence",
+      "startDate": "2026-06-23T19:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Linden Public Library, Columbia Bank Room",
+        "address": { "@type": "PostalAddress", "streetAddress": "31 East Henry Street", "addressLocality": "Linden", "addressRegion": "NJ" }
+      },
+      "organizer": { "@type": "Organization", "name": "Linden Public Library" },
+      "performer": { "@type": "Person", "@id": "https://gladianrivera.com/#person", "name": "Gladian Rivera" },
+      "description": "A free public lecture and plain-language tour of what AI actually is, where it's already useful, where it goes wrong, and how it is reshaping our personal, civic, and working lives."
+    }
+  ]
+}
+</script>
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #ff91a4;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- floating nav ---------- */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(255, 145, 164, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--ghost-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 15px;
+    height: 1.5px;
+    background: var(--foreground);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-toggle { display: flex; }
+    .floating-nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.1rem;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--ghost-border);
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .floating-nav-links.is-open { max-height: 460px; padding: 0.5rem 1.1rem 1rem; }
+    .floating-nav-links a { width: 100%; padding: 0.75rem 0.5rem; font-size: 0.85rem; border-radius: 0.35rem; }
+  }
+
+  /* ---------- hero ---------- */
+  .page-hero {
+    position: relative;
+    min-height: 56vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: clamp(8rem, 18vh, 10rem) 1.5rem clamp(3rem, 6vw, 4rem);
+    background: var(--background);
+  }
+  .page-hero-inner { max-width: 760px; }
+  .page-hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.6rem;
+  }
+  .page-hero h1 {
+    margin: 0 0 1.3rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--foreground);
+    text-shadow: 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--purple-bright);
+    text-shadow: 0 0 34px rgba(214, 188, 244, 0.45), 0 4px 40px rgba(0,0,0,0.6);
+  }
+  .page-hero .lede {
+    margin: 0 0 2rem;
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.82);
+  }
+
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2rem;
+    border-radius: 0.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 145, 164, 0.22); }
+
+  .ghost-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border: 1px solid var(--salmon);
+    border-radius: 0.25rem;
+    color: var(--salmon);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .ghost-btn:hover { background: var(--salmon); color: #1a0f12; }
+
+  /* ---------- topics ---------- */
+  .topics-section { padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(1rem, 2vw, 2rem); }
+  .section-heading {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 2rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.6rem;
+  }
+  .topic-card {
+    padding: 1.5rem 1.6rem;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.4rem;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .topic-card h3 {
+    margin: 0 0 0.6rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .topic-card p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: rgba(229, 226, 225, 0.76);
+  }
+
+  /* ---------- engagements ---------- */
+  .engagements-section { padding: clamp(3rem, 6vw, 4.5rem) 0; }
+  .engagement {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+    padding: 2.6rem 0;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .engagement:first-of-type { padding-top: 0.6rem; }
+  .engagement-flyer {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.4rem;
+    display: block;
+  }
+  .engagement-role {
+    display: inline-block;
+    margin: 0 0 0.9rem;
+    padding: 0.22rem 0.65rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    background: rgba(31, 174, 116, 0.1);
+    border: 1px solid rgba(31, 174, 116, 0.3);
+    border-radius: 0.25rem;
+  }
+  .engagement h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+    line-height: 1.2;
+  }
+  .engagement-host {
+    margin: 0 0 1.3rem;
+    font-size: 0.95rem;
+    color: var(--purple-bright);
+  }
+  .engagement p {
+    margin: 0 0 1.4rem;
+    max-width: 60ch;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.8);
+  }
+  .engagement-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.1rem 1.6rem;
+    margin: 0 0 1.5rem;
+    padding: 1.2rem 0 0;
+    border-top: 1px solid var(--ghost-border);
+  }
+  .engagement-meta dt {
+    margin: 0 0 0.3rem;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.45);
+  }
+  .engagement-meta dd {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(229, 226, 225, 0.88);
+  }
+  .engagement-meta dd span { display: block; font-size: 0.85rem; color: rgba(229, 226, 225, 0.6); }
+
+  .past-heading { margin-top: clamp(2rem, 5vw, 3.5rem); }
+  .engagement.is-past .engagement-role {
+    color: rgba(229, 226, 225, 0.6);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--ghost-border);
+  }
+  .engagement.is-past .engagement-flyer { opacity: 0.86; }
+
+  @media (max-width: 800px) {
+    .engagement { grid-template-columns: 1fr; }
+    .engagement-flyer { max-width: 340px; }
+  }
+
+  /* ---------- closing cta ---------- */
+  .speaking-cta {
+    padding: clamp(3.5rem, 7vw, 5.5rem) 1.5rem;
+    text-align: center;
+    border-top: 1px solid var(--ghost-border);
+  }
+  .speaking-cta h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+  }
+  .speaking-cta p {
+    margin: 0 auto 2rem;
+    max-width: 58ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.8);
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--ghost-border);
+    padding: 2.25rem 0 1.5rem;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 1.75rem;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-logo { width: 84px; height: 84px; border-radius: 50%; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.5);
+    margin: 0 0 0.8rem;
+  }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--ghost-border);
+    font-size: 0.76rem;
+    color: rgba(229, 226, 225, 0.5);
+  }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
+
+  @media (max-width: 700px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-connect { text-align: left; }
+  }
+</style>
 </head>
 <body>
 
-
-<svg width="0" height="0" style="position:absolute">
-  <defs>
-    <symbol id="mark-glyph" viewBox="0 0 48 48">
-      <circle cx="24" cy="24" r="15" fill="none" stroke="currentColor" stroke-width="1"/>
-      <g stroke="currentColor" stroke-width="1" stroke-linecap="round">
-        <line x1="24" y1="4" x2="24" y2="12"/>
-        <line x1="24" y1="36" x2="24" y2="44"/>
-        <line x1="4" y1="24" x2="12" y2="24"/>
-        <line x1="36" y1="24" x2="44" y2="24"/>
-        <line x1="10.5" y1="10.5" x2="15.5" y2="15.5"/>
-        <line x1="32.5" y1="32.5" x2="37.5" y2="37.5"/>
-        <line x1="37.5" y1="10.5" x2="32.5" y2="15.5"/>
-        <line x1="15.5" y1="32.5" x2="10.5" y2="37.5"/>
-      </g>
-      <circle cx="24" cy="24" r="2.4" fill="currentColor"/>
-    </symbol>
-    <symbol id="icon-linkedin" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2"/>
-        <line x1="7.5" y1="10" x2="7.5" y2="17"/>
-        <circle cx="7.5" cy="7" r="0.6" fill="currentColor" stroke="none"/>
-        <path d="M12 17v-4.2c0-1.5 1-2.3 2.3-2.3s2.2.8 2.2 2.3V17"/>
-        <line x1="12" y1="10" x2="12" y2="17"/>
-      </g>
-    </symbol>
-    <symbol id="icon-instagram" viewBox="0 0 24 24">
-      <g fill="none" stroke="currentColor" stroke-width="1.4">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4.2"/>
-        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none"/>
-      </g>
-    </symbol>
-  </defs>
-</svg>
-
 <a class="skip-link" href="#main-content">Skip to content</a>
 
-<header id="site-header">
-  <div class="wrap">
-    <a href="/" class="brand">
-      <svg class="mark" style="color: var(--gold)"><use href="#mark-glyph"/></svg>
-      <span class="wordmark">Gladian Rivera</span>
-    </a>
-    <nav class="primary-nav">
-      <a href="/">Home</a>
-      <a href="/about">About</a>
-      <a href="/work-with-me">Work With Me</a>
-      <a href="/book">Book</a>
-      <a href="/podcast">Podcast</a>
-      <a href="/speaking" class="current">Speaking</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/contact">Contact</a>
-      <a href="/#connect" class="ghost-btn">Let's Connect</a>
-    </nav>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
   </div>
-</header>
-
-<div class="mobile-panel" id="mobile-panel">
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/work-with-me">Work With Me</a>
-  <a href="/book">Book</a>
-  <a href="/podcast">Podcast</a>
-  <a href="/speaking">Speaking</a>
-  <a href="/portfolio">Portfolio</a>
-  <a href="/contact">Contact</a>
-  <a href="/#connect" class="ghost-btn on-dark">Let's Connect</a>
-</div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="floating-nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="floating-nav-links" id="floating-nav-links">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast">Podcast</a>
+    <a href="/book">Book</a>
+    <a href="/speaking" class="current">Speaking</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
 
 <main id="main-content">
-  <section class="page-hero on-dark">
-    <div class="wrap">
+  <section class="page-hero">
+    <div class="page-hero-inner">
       <p class="eyebrow">Speaking</p>
-      <h1>Speaking<br><em>engagements.</em></h1>
-      <p class="lede">Topics that inspire, challenge, and equip leaders to lead with inner authority &mdash; on resilience, entrepreneurship, technology, and human-centered leadership.</p>
+      <h1>Speaking<em>engagements.</em></h1>
+      <p class="lede">Talks, panels, and workshops that inspire, challenge, and equip leaders &mdash; on responsible AI, resilience, entrepreneurship, and human-centered leadership.</p>
+      <a class="btn-solid" href="/contact">Book a Speaking Engagement →</a>
     </div>
   </section>
 
-  <section class="page-section page-section--split on-light reveal">
+  <section class="topics-section">
     <div class="wrap">
-      <div>
-        <span class="under-construction">Under Construction</span>
-        <h2>The full lineup is on its way.</h2>
-      </div>
-      <div>
-        <p>This page will soon hold the complete list of talks, panels, and speaking engagements &mdash; past and upcoming. Check back soon, or reach out directly to book Gladian for your next event.</p>
-        <a href="/contact" class="ghost-btn">Book a Speaking Engagement →</a>
+      <p class="section-heading">Topics</p>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h3>Responsible AI</h3>
+          <p>What AI should handle, what stays off-limits, and where a human has to make the final call &mdash; practical guardrails for teams putting AI to work.</p>
+        </div>
+        <div class="topic-card">
+          <h3>AI for Small Business</h3>
+          <p>Hands-on sessions on using free and low-cost AI tools to save time and strengthen operations, no technical background required.</p>
+        </div>
+        <div class="topic-card">
+          <h3>Leadership &amp; Resilience</h3>
+          <p>Leading from inner authority &mdash; staying whole under pressure, and building the judgment that holds when the stakes are real.</p>
+        </div>
+        <div class="topic-card">
+          <h3>Entrepreneurship</h3>
+          <p>Building companies and systems with care: the operational reality behind the strategy, drawn from founding and running her own.</p>
+        </div>
       </div>
     </div>
+  </section>
+
+  <section class="engagements-section">
+    <div class="wrap">
+      <p class="section-heading">Upcoming</p>
+
+      <article class="engagement">
+        <img class="engagement-flyer" src="assets/speaking/wer12-panelist.webp" alt="Women Entrepreneurs Rock 12 speaker announcement featuring Gladian Rivera as panelist" width="900" height="1125" loading="lazy">
+        <div>
+          <span class="engagement-role">Panelist</span>
+          <h3>Women Entrepreneurs Rock 12: Changing the Game</h3>
+          <p class="engagement-host">America's SBDC New Jersey at Brookdale Community College</p>
+          <p>Gladian joins the panel at the twelfth Women Entrepreneurs Rock conference, bringing the founder, CEO, and author perspective to a room of women building and scaling their own companies.</p>
+          <dl class="engagement-meta">
+            <div>
+              <dt>Date</dt>
+              <dd>October 19, 2026</dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd>Whitechapel Projects</dd>
+            </div>
+            <div>
+              <dt>Role</dt>
+              <dd>WER Panelist</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <p class="section-heading past-heading">Past Engagements</p>
+
+      <article class="engagement is-past">
+        <img class="engagement-flyer" src="assets/speaking/efficient-enterprise.webp" alt="Flyer for The Efficient Enterprise workshop presented by Gladian Rivera of Obsidian Rising LLC" width="900" height="1165" loading="lazy">
+        <div>
+          <span class="engagement-role">Workshop</span>
+          <h3>The Efficient Enterprise: Using AI to Streamline Your Business Operations</h3>
+          <p class="engagement-host">Greater Union Township Chamber of Commerce</p>
+          <p>A hands-on workshop for small business owners and entrepreneurs. No tech background or big budget required &mdash; the session walked attendees through using free and low-cost AI tools to save time and increase operational effectiveness in real time.</p>
+          <dl class="engagement-meta">
+            <div>
+              <dt>Date</dt>
+              <dd>May 13, 2026<span>5:00 – 7:00 PM</span></dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd>The Gateway Family YMCA Wellness Center<span>1000 Galloping Hill Road, Union, NJ</span></dd>
+            </div>
+            <div>
+              <dt>Admission</dt>
+              <dd>Free</dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="engagement is-past">
+        <img class="engagement-flyer" src="assets/speaking/linden-library-ai.webp" alt="Flyer for An Introduction to Artificial Intelligence, a free public lecture by Gladian Rivera at Linden Public Library" width="900" height="1165" loading="lazy">
+        <div>
+          <span class="engagement-role">Public Lecture</span>
+          <h3>An Introduction to Artificial Intelligence</h3>
+          <p class="engagement-host">Linden Public Library — Summer Lecture Series 2026</p>
+          <p>A free public lecture and plain-language tour of what AI actually is, where it's already useful, where it goes wrong, and how it is reshaping our personal, civic, and working lives &mdash; hosted by Linden Public Library in partnership with Obsidian Rising.</p>
+          <dl class="engagement-meta">
+            <div>
+              <dt>Date</dt>
+              <dd>Tuesday, June 23, 2026<span>7:00 PM</span></dd>
+            </div>
+            <div>
+              <dt>Venue</dt>
+              <dd>Columbia Bank Room, Linden Public Library<span>31 East Henry Street, Linden, NJ</span></dd>
+            </div>
+            <div>
+              <dt>Admission</dt>
+              <dd>Free<span>Open to the public</span></dd>
+            </div>
+          </dl>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="speaking-cta">
+    <h2>Bring Gladian to your next event.</h2>
+    <p>Conferences, panels, workshops, corporate sessions, and community programs — on responsible AI, leadership, resilience, and entrepreneurship.</p>
+    <a class="btn-solid" href="/contact">Book a Speaking Engagement →</a>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
     <div class="footer-top">
-      <div class="footer-brand">
-        <svg class="mark" style="color: var(--gold-soft); width:26px;height:26px;"><use href="#mark-glyph"/></svg>
-        <span class="wordmark">Gladian Rivera</span>
-      </div>
-      <nav class="footer-nav">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/work-with-me">Work With Me</a>
-        <a href="/book">Book</a>
-        <a href="/podcast">Podcast</a>
-        <a href="/speaking">Speaking</a>
-        <a href="/portfolio">Portfolio</a>
-        <a href="/contact">Contact</a>
-      </nav>
+      <div class="footer-brand"><img src="/apple-touch-icon.png" alt="" width="84" height="84" class="footer-logo">Gladian Rivera</div>
       <div class="footer-connect">
         <p class="eyebrow">Stay Connected</p>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#icon-linkedin"/></svg></a>
-          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
-        </div>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
       </div>
     </div>
     <div class="footer-bottom">
@@ -150,11 +634,31 @@
       <div class="footer-legal">
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
       </div>
     </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
   </div>
 </footer>
 
-<script src="script.js" defer></script>
+<script>
+(function () {
+  "use strict";
+  var toggle = document.getElementById("nav-toggle");
+  var links = document.getElementById("floating-nav-links");
+  if (!toggle || !links) return;
+  toggle.addEventListener("click", function () {
+    var open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    links.classList.toggle("is-open", !open);
+  });
+  links.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      toggle.setAttribute("aria-expanded", "false");
+      links.classList.remove("is-open");
+    });
+  });
+})();
+</script>
 </body>
 </html>
