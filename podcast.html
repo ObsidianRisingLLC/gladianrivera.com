@@ -459,7 +459,8 @@
   .coffee-banner {
     display: flex;
     align-items: center;
-    gap: clamp(1rem, 2.5vw, 1.8rem);
+    flex-wrap: wrap;
+    gap: 1rem clamp(1rem, 2.2vw, 1.5rem);
     margin: clamp(2rem, 4vw, 2.75rem) 0 0;
     padding: 1.1rem clamp(1.2rem, 3vw, 1.9rem);
     border: 1px solid rgba(255, 145, 164, 0.28);
@@ -470,7 +471,7 @@
     transition: border-color 0.35s ease, transform 0.35s ease;
   }
   .coffee-banner:hover { border-color: rgba(255, 145, 164, 0.55); transform: translateY(-2px); }
-  .coffee-cup { width: 92px; height: 92px; flex-shrink: 0; display: block; overflow: visible; }
+  .coffee-cup { width: 84px; height: 84px; flex-shrink: 0; display: block; overflow: visible; }
   .coffee-steam { opacity: 0; animation: coffee-rise 3.4s ease-in-out infinite; }
   .coffee-steam:nth-of-type(2) { animation-delay: 0.5s; }
   .coffee-steam:nth-of-type(3) { animation-delay: 1s; }
@@ -483,7 +484,7 @@
     .coffee-steam { animation: none; opacity: 0.65; }
     .coffee-banner:hover { transform: none; }
   }
-  .coffee-text { flex: 1 1 auto; min-width: 0; }
+  .coffee-text { flex: 1 1 210px; min-width: 0; }
   .coffee-text .eyebrow {
     display: block;
     font-family: var(--font-body);
@@ -501,7 +502,7 @@
     line-height: 1.25;
   }
   .coffee-text h3 em { font-style: italic; color: var(--salmon); }
-  .coffee-banner .btn-solid { flex-shrink: 0; padding: 0.75rem 1.4rem; font-size: 0.76rem; }
+  .coffee-banner .btn-solid { flex: 0 0 auto; margin-left: auto; padding: 0.75rem 1.4rem; font-size: 0.76rem; }
 
   @media (max-width: 620px) {
     .coffee-banner { flex-direction: column; text-align: center; gap: 0.9rem; padding: 1.5rem 1.2rem; }
@@ -613,28 +614,27 @@
       <div>
         <p>Some conversations are polished. Others are honest. The Gladian Rivera Show makes room for both — bold ideas, lived experience, and the messy reality of becoming.</p>
         <p class="quote">Each episode is an invitation to question convention, move through uncertainty, and build a life on your own terms.</p>
+
+        <div class="coffee-banner">
+          <svg class="coffee-cup" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <g stroke="#ff91a4" stroke-width="2.4" stroke-linecap="round">
+              <path class="coffee-steam" d="M24 16c-2.6-2.4-2.6-5 0-7.4"/>
+              <path class="coffee-steam" d="M32 15c-2.6-2.8-2.6-5.8 0-8.6"/>
+              <path class="coffee-steam" d="M40 16c-2.6-2.4-2.6-5 0-7.4"/>
+            </g>
+            <path d="M14 24h32v12a14 14 0 0 1-14 14h-4a14 14 0 0 1-14-14V24Z" fill="rgba(255,145,164,0.16)" stroke="#ff91a4" stroke-width="2.4" stroke-linejoin="round"/>
+            <path d="M46 27h3.5a6.5 6.5 0 0 1 0 13H46" stroke="#ff91a4" stroke-width="2.4" stroke-linecap="round"/>
+            <path d="M10 56h44" stroke="#d6bcf4" stroke-width="2.4" stroke-linecap="round"/>
+            <circle cx="25" cy="34" r="1.7" fill="#d6bcf4"/>
+            <circle cx="33" cy="39" r="1.4" fill="#1fae74"/>
+          </svg>
+          <div class="coffee-text">
+            <span class="eyebrow">Support the Podcast!</span>
+            <h3>Enjoying the show? <em>Buy me a coffee.</em></h3>
+          </div>
+          <a class="btn-solid" href="https://buymeacoffee.com/gladianriverashow" target="_blank" rel="noopener">Buy Me a Coffee →</a>
         </div>
       </div>
-    </div>
-    <div class="wrap">
-      <div class="coffee-banner">
-        <svg class="coffee-cup" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <g stroke="#ff91a4" stroke-width="2.4" stroke-linecap="round">
-            <path class="coffee-steam" d="M24 16c-2.6-2.4-2.6-5 0-7.4"/>
-            <path class="coffee-steam" d="M32 15c-2.6-2.8-2.6-5.8 0-8.6"/>
-            <path class="coffee-steam" d="M40 16c-2.6-2.4-2.6-5 0-7.4"/>
-          </g>
-          <path d="M14 24h32v12a14 14 0 0 1-14 14h-4a14 14 0 0 1-14-14V24Z" fill="rgba(255,145,164,0.16)" stroke="#ff91a4" stroke-width="2.4" stroke-linejoin="round"/>
-          <path d="M46 27h3.5a6.5 6.5 0 0 1 0 13H46" stroke="#ff91a4" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M10 56h44" stroke="#d6bcf4" stroke-width="2.4" stroke-linecap="round"/>
-          <circle cx="25" cy="34" r="1.7" fill="#d6bcf4"/>
-          <circle cx="33" cy="39" r="1.4" fill="#1fae74"/>
-        </svg>
-        <div class="coffee-text">
-          <span class="eyebrow">Support the Podcast!</span>
-          <h3>Enjoying the show? <em>Buy me a coffee.</em></h3>
-        </div>
-        <a class="btn-solid" href="https://buymeacoffee.com/gladianriverashow" target="_blank" rel="noopener">Buy Me a Coffee →</a>
     </div>
   </section>
 
