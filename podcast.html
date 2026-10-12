@@ -505,8 +505,19 @@
   .coffee-banner .btn-solid { flex: 0 0 auto; margin-left: auto; padding: 0.75rem 1.4rem; font-size: 0.76rem; }
 
   @media (max-width: 620px) {
-    .coffee-banner { flex-direction: column; text-align: center; gap: 0.9rem; padding: 1.5rem 1.2rem; }
-    .coffee-cup { width: 86px; height: 86px; }
+    .coffee-banner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.55rem;
+      padding: 1.1rem 1rem 1.2rem;
+    }
+    /* row-direction flex-basis would force a tall box here */
+    .coffee-text { flex: 0 0 auto; }
+    .coffee-cup { width: 54px; height: 54px; }
+    .coffee-text .eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; margin-bottom: 0.25rem; }
+    .coffee-text h3 { font-size: 1.02rem; }
+    .coffee-banner .btn-solid { margin: 0.35rem 0 0; padding: 0.65rem 1.2rem; font-size: 0.72rem; }
   }
 
   /* ---------- press / "as seen in" ---------- */
