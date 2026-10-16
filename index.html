@@ -53,7 +53,7 @@
     --purple-bright: #d6bcf4;
     --emerald: #043927;
     --emerald-bright: #1fae74;
-    --salmon: #ff91a4;
+    --salmon: #B76E79;
     --ghost-border: rgba(255, 255, 255, 0.12);
     --font-display: "Playfair Display", Georgia, serif;
     --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
@@ -119,9 +119,9 @@
   }
   .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
     color: var(--salmon);
-    background: rgba(255, 145, 164, 0.08);
+    background: rgba(183, 110, 121, 0.08);
   }
-  .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(183, 110, 121, 0.1); }
 
   .nav-toggle {
     display: none;
@@ -245,7 +245,7 @@
     text-transform: uppercase;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
-  .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 145, 164, 0.22); }
+  .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(183, 110, 121, 0.22); }
   .btn-ghost {
     display: inline-flex;
     align-items: center;
@@ -275,7 +275,7 @@
     border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.02);
   }
-  .fork-card.is-company { border-color: rgba(183, 110, 121, 0.4); }
+  .fork-card.is-company { border-color: var(--ghost-border); }
   .fork-card .label {
     display: block;
     font-size: 0.64rem;
@@ -284,7 +284,7 @@
     color: var(--emerald-bright);
     margin: 0 0 0.7rem;
   }
-  .fork-card.is-company .label { color: #d9a2aa; }
+  .fork-card.is-company .label { color: #B76E79; }
   .fork-card h2 {
     margin: 0 0 0.6rem;
     font-family: var(--font-display);
@@ -299,7 +299,7 @@
     color: rgba(229, 226, 225, 0.78);
   }
   .fork-card .text-link { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: var(--salmon); }
-  .fork-card.is-company .text-link { color: #d9a2aa; }
+  .fork-card.is-company .text-link { color: #B76E79; }
   .fork-card .text-link:hover { color: var(--purple-bright); }
 
   @media (max-width: 760px) { .fork { grid-template-columns: 1fr; } }
