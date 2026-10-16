@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gladian Rivera</title>
-<meta name="description" content="Gladian Rivera — ideas, impact, transformation. Strategist, author of The Sovereign Leader, speaker, and creator.">
+<meta name="description" content="Gladian Rivera — author of The Sovereign Leader, speaker, and host of The Gladian Rivera Show. Ideas. Impact. Transformation.">
 <link rel="canonical" href="https://gladianrivera.com/">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -13,12 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Gladian Rivera">
 <meta property="og:title" content="Gladian Rivera — Ideas. Impact. Transformation.">
-<meta property="og:description" content="Gladian Rivera — ideas, impact, transformation. Strategist, author of The Sovereign Leader, speaker, and creator.">
+<meta property="og:description" content="Author of The Sovereign Leader, speaker, and host of The Gladian Rivera Show.">
 <meta property="og:url" content="https://gladianrivera.com/">
 <meta property="og:image" content="https://gladianrivera.com/assets/social-card.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Gladian Rivera — Ideas. Impact. Transformation.">
-<meta name="twitter:description" content="Gladian Rivera — ideas, impact, transformation. Strategist, author of The Sovereign Leader, speaker, and creator.">
+<meta name="twitter:description" content="Author of The Sovereign Leader, speaker, and host of The Gladian Rivera Show.">
 <meta name="twitter:image" content="https://gladianrivera.com/assets/social-card.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +31,12 @@
   "name": "Gladian Rivera",
   "url": "https://gladianrivera.com/",
   "image": "https://gladianrivera.com/assets/Portrait%203.jpg",
-  "jobTitle": ["Strategist", "Author", "Speaker"],
-  "description": "Strategist, author of The Sovereign Leader, speaker, and creator working across leadership, technology, creativity, and human-centered transformation.",
+  "jobTitle": ["Author", "Speaker", "Podcast Host"],
+  "description": "Author of The Sovereign Leader, speaker, and host of The Gladian Rivera Show, working across leadership, resilience, technology, and human-centered transformation.",
   "sameAs": [
     "https://www.linkedin.com/in/gladianrivera/",
     "https://www.instagram.com/gladianrivera/",
-    "https://www.youtube.com/watch?v=jR3g5dnTsKg"
+    "https://www.youtube.com/@TheGladianRiveraShow"
   ],
   "worksFor": {
     "@type": "Organization",
@@ -57,12 +57,10 @@
     --ghost-border: rgba(255, 255, 255, 0.12);
     --font-display: "Playfair Display", Georgia, serif;
     --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
   body {
     margin: 0;
     background: var(--background);
@@ -70,8 +68,8 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
-
   a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
 
   .skip-link {
     position: absolute;
@@ -88,10 +86,6 @@
   .skip-link:focus { top: 1rem; }
 
   /* ---------- floating nav ---------- */
-  /* Padding/font metrics must match the floating-nav on every other page
-     byte-for-byte — the nav is position:fixed over the hero image, so any
-     height difference between pages changes how much of the crystal is
-     exposed below it, even though the image itself renders identically. */
   .floating-nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -108,13 +102,7 @@
     flex-wrap: wrap;
   }
   .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
-  .floating-nav-brand {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: var(--foreground);
-    white-space: nowrap;
-  }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
   .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
   .floating-nav-links a {
     display: inline-flex;
@@ -135,9 +123,6 @@
   }
   .floating-nav-links a.current { color: var(--salmon); background: rgba(255, 145, 164, 0.1); }
 
-  /* Hamburger toggle — hidden by default; the 640px media query below is
-     the only place that reveals it, so desktop/tablet keep the full
-     inline link row exactly as before. */
   .nav-toggle {
     display: none;
     align-items: center;
@@ -169,13 +154,6 @@
     .floating-nav-links { gap: 0.2rem; }
     .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
   }
-
-  /* Phone only: collapse the link row behind the hamburger toggle so the
-     fixed nav stays a single short line instead of wrapping to two — on
-     narrow screens the wrapped two-line bar was tall enough to sit on
-     top of page content (it was covering the first trait card, "Strategic
-     Mind," on this page). Desktop/tablet above this breakpoint don't see
-     any of this — .nav-toggle stays display:none until here. */
   @media (max-width: 640px) {
     .nav-toggle { display: flex; }
     .floating-nav-links {
@@ -195,208 +173,266 @@
       border-bottom: 1px solid var(--ghost-border);
       transition: max-height 0.3s ease, padding 0.3s ease;
     }
-    .floating-nav-links.is-open { max-height: 400px; padding: 0.5rem 1.1rem 1rem; }
+    .floating-nav-links.is-open { max-height: 420px; padding: 0.5rem 1.1rem 1rem; }
     .floating-nav-links a { width: 100%; padding: 0.75rem 0.5rem; font-size: 0.85rem; border-radius: 0.35rem; }
   }
 
-  /* ---------- scroll sequence ---------- */
-  #home-sequence {
-    position: relative;
-    background: var(--background);
+  /* ---------- intro ---------- */
+  .intro {
+    padding: clamp(7.5rem, 16vh, 9.5rem) 0 clamp(3rem, 6vw, 4rem);
   }
-  #home-sequence canvas {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: center;
+  }
+  .intro-portrait {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 0.5rem;
+    border: 1px solid var(--ghost-border);
     display: block;
-    opacity: 0;
-    transition: opacity 0.6s ease;
   }
-  #home-sequence.is-ready canvas { opacity: 1; }
-
-  .caption-layer {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 1.5rem;
-    pointer-events: none;
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.4) 100%);
+  .intro .eyebrow {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.1rem;
   }
-  .caption {
-    position: absolute;
-    margin: 0;
-    opacity: 0;
+  .intro h1 {
+    margin: 0 0 1.2rem;
     font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 1.05;
+  }
+  .intro h1 em {
+    display: block;
+    font-style: italic;
     font-weight: 600;
-    font-size: clamp(2.6rem, 6vw, 4.5rem);
-    color: var(--foreground);
-    text-shadow: 0 2px 24px rgba(0,0,0,0.5);
+    color: var(--purple-bright);
   }
-  .caption-tagline { max-width: 760px; font-size: clamp(2rem, 4.5vw, 3.3rem); line-height: 1.2; }
-  .caption-tagline em { font-style: italic; color: var(--salmon); }
+  .intro .lede {
+    margin: 0 0 1.6rem;
+    max-width: 54ch;
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.84);
+  }
+  .intro-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
 
-  .bio-layer {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1.25rem;
-    pointer-events: none;
+  @media (max-width: 760px) {
+    .intro-grid { grid-template-columns: 1fr; }
+    .intro-portrait { max-width: 230px; }
   }
-  .bio-card {
-    opacity: 0;
-    width: min(480px, 90vw);
-    padding: 2.2rem 2.4rem;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+
+  .btn-solid {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.7rem;
+    border-radius: 0.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-solid:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255, 145, 164, 0.22); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.9rem 1.7rem;
+    border: 1px solid var(--ghost-border);
+    border-radius: 0.25rem;
+    color: var(--foreground);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .btn-ghost:hover { border-color: var(--emerald-bright); color: var(--emerald-bright); }
+
+  /* ---------- the fork: personal vs company ---------- */
+  .fork-section { padding: 0 0 clamp(3.5rem, 7vw, 5rem); }
+  .fork {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .fork-card {
+    padding: 1.6rem 1.8rem 1.8rem;
     border: 1px solid var(--ghost-border);
     border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.02);
   }
-  .bio-card h1 {
-    margin: 0 0 1rem;
+  .fork-card.is-company { border-color: rgba(183, 110, 121, 0.4); }
+  .fork-card .label {
+    display: block;
+    font-size: 0.64rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 0.7rem;
+  }
+  .fork-card.is-company .label { color: #d9a2aa; }
+  .fork-card h2 {
+    margin: 0 0 0.6rem;
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: clamp(1.6rem, 3vw, 2.1rem);
-    color: var(--foreground);
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+    line-height: 1.25;
   }
-  .bio-card .bio-lines {
-    margin: 0 0 1.3rem;
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-    line-height: 1.5;
-    color: var(--foreground);
-  }
-  .bio-card .bio-lines div { margin: 0; }
-  .bio-card p.bio-desc {
-    margin: 0 0 1.6rem;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.95rem;
+  .fork-card p {
+    margin: 0 0 1rem;
+    font-size: 0.96rem;
     line-height: 1.65;
     color: rgba(229, 226, 225, 0.78);
   }
-  .bio-card .bio-cta {
-    display: inline-block;
-    padding: 0.7rem 1.4rem;
-    border: 1px solid var(--salmon);
-    border-radius: 0.25rem;
-    color: var(--salmon);
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 0.04em;
-    pointer-events: auto;
-  }
+  .fork-card .text-link { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; color: var(--salmon); }
+  .fork-card.is-company .text-link { color: #d9a2aa; }
+  .fork-card .text-link:hover { color: var(--purple-bright); }
 
-  .trait-layer {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1.25rem;
-    pointer-events: none;
+  @media (max-width: 760px) { .fork { grid-template-columns: 1fr; } }
+
+  /* ---------- three doors ---------- */
+  .doors-section { padding: 0 0 clamp(3.5rem, 7vw, 5rem); }
+  .section-heading {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 2rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--ghost-border);
   }
-  .trait-stack { width: min(560px, 92vw); display: flex; flex-direction: column; gap: 1.4rem; }
-  .trait-card {
-    opacity: 0;
-    padding: 1.4rem 1.6rem;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+  .doors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .door {
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--ghost-border);
     border-radius: 0.5rem;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    transition: border-color 0.3s ease, transform 0.3s ease;
   }
-  .trait-card .trait-title {
-    margin: 0 0 0.4rem;
-    font-family: var(--font-body);
-    font-weight: 700;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
+  .door:hover { border-color: var(--salmon); transform: translateY(-4px); }
+  .door-media { aspect-ratio: 16 / 10; overflow: hidden; background: #0d0d0d; }
+  .door-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .door-media.is-book img { object-fit: contain; padding: 1rem; }
+  .door-media.is-speaking img { object-position: center top; }
+  .door-body { padding: 1.3rem 1.4rem 1.6rem; }
+  .door-body .label {
+    display: block;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--foreground);
+    color: var(--emerald-bright);
+    margin: 0 0 0.5rem;
   }
-  .trait-card .trait-body {
-    margin: 0;
-    font-family: var(--font-body);
-    font-weight: 400;
-    font-size: 0.92rem;
+  .door-body h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.3rem;
+    line-height: 1.25;
+  }
+  .door-body p {
+    margin: 0 0 1rem;
+    font-size: 0.94rem;
     line-height: 1.6;
+    color: rgba(229, 226, 225, 0.76);
+  }
+  .door-body .text-link { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; color: var(--salmon); }
+
+  @media (max-width: 860px) { .doors { grid-template-columns: 1fr; } .door-media { aspect-ratio: 16 / 7; } }
+
+  /* ---------- closing ---------- */
+  .closing {
+    padding: clamp(3rem, 6vw, 4.5rem) 1.5rem clamp(4rem, 8vw, 5.5rem);
+    text-align: center;
+    border-top: 1px solid var(--ghost-border);
+  }
+  .closing h2 {
+    margin: 0 0 1rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+  }
+  .closing p {
+    margin: 0 auto 1.9rem;
+    max-width: 52ch;
+    font-size: 1rem;
+    line-height: 1.7;
     color: rgba(229, 226, 225, 0.8);
   }
 
-  /* 5 shard buttons, no dropdown — stacked vertically like the trait
-     cards (.trait-stack) instead of a horizontal wrapping row. The old
-     wrapped-row layout, inside a position:fixed/inset:0 container with
-     no scroll, clipped whichever row didn't fit on a short mobile
-     screen — that's what made About/Book disappear on phones. A single
-     column sized to fit comfortably at any viewport height fixes that
-     structurally instead of chasing breakpoints. The hover dropdown
-     (description + secondary links) is gone entirely, on every device
-     — not just hidden on mobile. */
-  .nav-buttons-layer {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0 1.5rem;
-    pointer-events: none;
+  /* ---------- footer ---------- */
+  footer {
+    border-top: 1px solid var(--ghost-border);
+    padding: 2.25rem 0 1.5rem;
   }
-  .nav-pill-wrap { display: block; width: min(400px, 90vw); opacity: 0; }
-  .nav-pill {
-    position: relative;
-    display: flex;
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: center;
-    gap: 0.9rem;
-    overflow: hidden;
-    width: 100%;
-    padding: 1.5rem 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    color: var(--salmon);
-    font-family: var(--font-body);
-    font-weight: 600;
-    font-size: 0.95rem;
+    gap: 3rem;
+    margin-bottom: 1.75rem;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-logo { width: 84px; height: 84px; border-radius: 50%; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow {
+    font-size: 0.68rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    background: #000;
-    transition: border-color 0.35s ease;
-    pointer-events: auto;
+    color: rgba(229, 226, 225, 0.5);
+    margin: 0 0 0.8rem;
   }
-  .nav-pill svg {
-    width: 21px;
-    height: 21px;
-    flex-shrink: 0;
-    stroke: currentColor;
+  .footer-sitenav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
   }
-  .nav-pill::after {
-    content: "";
-    position: absolute;
-    top: 0; left: -60%;
-    width: 30%; height: 100%;
-    background: linear-gradient(115deg, transparent, rgba(255,255,255,0.16), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.7s ease;
-    pointer-events: none;
+  .footer-sitenav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-sitenav a:hover { color: var(--salmon); }
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--ghost-border);
+    font-size: 0.76rem;
+    color: rgba(229, 226, 225, 0.5);
   }
-  .nav-pill-wrap:hover .nav-pill,
-  .nav-pill-wrap:focus-within .nav-pill { border-color: rgba(255,255,255,0.4); }
-  .nav-pill-wrap:hover .nav-pill::after,
-  .nav-pill-wrap:focus-within .nav-pill::after { left: 130%; }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
 
-  @media (max-width: 640px) {
-    .nav-pill-wrap { width: min(320px, 88vw); }
-    .nav-pill { padding: 1.2rem 1.6rem; font-size: 0.8rem; letter-spacing: 0.14em; gap: 0.7rem; }
-    .nav-pill svg { width: 18px; height: 18px; }
+  @media (max-width: 700px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .footer-connect { text-align: left; }
   }
 </style>
 </head>
@@ -422,88 +458,111 @@
 </nav>
 
 <main id="main-content">
-<section id="home-sequence">
-  <canvas id="home-sequence-canvas"></canvas>
+  <section class="intro">
+    <div class="wrap intro-grid">
+      <img class="intro-portrait" src="assets/Portrait 3.jpg" alt="Gladian Rivera">
+      <div>
+        <span class="eyebrow">Ideas. Impact. Transformation.</span>
+        <h1>Hi, I'm<em>Gladian Rivera.</em></h1>
+        <p class="lede">I'm an author, speaker, and the host of The Gladian Rivera Show. I write and talk about leadership, resilience, entrepreneurship, and the responsible use of AI — drawn from two decades inside government, healthcare, and institutions where the stakes were real.</p>
+        <div class="intro-actions">
+          <a class="btn-solid" href="/podcast">Listen to the Show →</a>
+          <a class="btn-ghost" href="/about">More About Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="caption-layer">
-    <h1 class="caption caption-welcome">Welcome</h1>
-    <h1 class="caption caption-tagline">Ideas. Impact. <em>Transformation.</em></h1>
-    <h1 class="caption caption-explore">Explore</h1>
-  </div>
+  <section class="fork-section">
+    <div class="wrap fork">
+      <div class="fork-card">
+        <span class="label">You're in the right place</span>
+        <h2>Here for the show, the book, or to book me to speak?</h2>
+        <p>This site holds all of it — every episode of The Gladian Rivera Show, The Sovereign Leader, and my speaking engagements.</p>
+        <a href="/work-with-me" class="text-link">See What I Do →</a>
+      </div>
+      <div class="fork-card is-company">
+        <span class="label">Looking for consulting?</span>
+        <h2>That's Obsidian Rising LLC.</h2>
+        <p>My consulting firm — operations, AI adoption, and government contracting readiness for businesses and the agencies they serve. Separate company, separate site.</p>
+        <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener" class="text-link">Visit Obsidian Rising →</a>
+      </div>
+    </div>
+  </section>
 
-  <div class="bio-layer">
-    <div class="bio-card">
-      <h1>Hi, I&rsquo;m Gladian</h1>
-      <div class="bio-lines">
-        <div>I build clarity.</div>
-        <div>I create systems.</div>
-        <div>I create experiences for lasting impact.</div>
+  <section class="doors-section">
+    <div class="wrap">
+      <p class="section-heading">Start Here</p>
+      <div class="doors">
+        <a class="door" href="/podcast">
+          <div class="door-media"><img src="assets/podcast-cover.webp" alt="The Gladian Rivera Show cover art" loading="lazy"></div>
+          <div class="door-body">
+            <span class="label">The Podcast</span>
+            <h3>The Gladian Rivera Show</h3>
+            <p>Candid conversations on leadership, entrepreneurship, AI, and human behavior. Latest: The Power of Congruency.</p>
+            <span class="text-link">All Episodes →</span>
+          </div>
+        </a>
+        <a class="door" href="/book">
+          <div class="door-media is-book"><img src="assets/book-cover.jpg" alt="The Sovereign Leader book cover" loading="lazy"></div>
+          <div class="door-body">
+            <span class="label">The Book</span>
+            <h3>The Sovereign Leader</h3>
+            <p>Leading from inner authority after the forge — a framework for staying whole while the weight of leadership is real.</p>
+            <span class="text-link">About the Book →</span>
+          </div>
+        </a>
+        <a class="door" href="/speaking">
+          <div class="door-media is-speaking"><img src="assets/speaking/wer12-panelist.webp" alt="Gladian Rivera speaking engagement announcement" loading="lazy"></div>
+          <div class="door-body">
+            <span class="label">Speaking</span>
+            <h3>Talks, Panels &amp; Workshops</h3>
+            <p>On responsible AI, leadership, resilience, and entrepreneurship — for conferences, chambers, libraries, and corporate audiences.</p>
+            <span class="text-link">Book Me to Speak →</span>
+          </div>
+        </a>
       </div>
-      <p class="bio-desc">Gladian Rivera is a strategist, author, speaker, and creator working across leadership, technology, creativity, systems, and human-centered transformation.</p>
-      <a href="/work-with-me" class="bio-cta">More About Me →</a>
     </div>
-  </div>
+  </section>
 
-  <div class="trait-layer">
-    <div class="trait-stack">
-      <div class="trait-card">
-        <p class="trait-title">Strategic Mind</p>
-        <p class="trait-body">I find clarity in complexity and design systems that work.</p>
-      </div>
-      <div class="trait-card">
-        <p class="trait-title">Creative Soul</p>
-        <p class="trait-body">I see possibility and meaningful stories in everything.</p>
-      </div>
-      <div class="trait-card">
-        <p class="trait-title">Human-Centered</p>
-        <p class="trait-body">I lead with empathy, empower people, and create impact.</p>
-      </div>
-      <div class="trait-card">
-        <p class="trait-title">Future-Focused</p>
-        <p class="trait-body">I explore emerging ideas, and frontier developments in AI to build what's next.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="nav-buttons-layer">
-    <div class="nav-pill-wrap">
-      <a href="/about" class="nav-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.6"></circle><path d="M4.8 20c1.1-3.6 4-5.6 7.2-5.6s6.1 2 7.2 5.6"></path></svg>
-        About
-      </a>
-    </div>
-    <div class="nav-pill-wrap">
-      <a href="/book" class="nav-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"></rect><path d="M3.5 9.5h17"></path><path d="M8 3v3.5"></path><path d="M16 3v3.5"></path></svg>
-        Book
-      </a>
-    </div>
-    <div class="nav-pill-wrap">
-      <a href="/contact" class="nav-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="1.5"></rect><path d="M3.5 6.5L12 13L20.5 6.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        Contact
-      </a>
-    </div>
-    <div class="nav-pill-wrap">
-      <a href="/podcast" class="nav-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"></rect><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"></path><path d="M12 18v3"></path></svg>
-        Podcast
-      </a>
-    </div>
-    <div class="nav-pill-wrap">
-      <a href="/work-with-me" class="nav-pill">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="11.5" rx="1.4"></rect><path d="M8.5 8V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v2"></path><path d="M3 13h18"></path></svg>
-        Work With Me
-      </a>
-    </div>
-  </div>
-</section>
+  <section class="closing">
+    <h2>Let's talk.</h2>
+    <p>Speaking invitations, media and podcast requests, collaborations, or just to say an episode landed — I read everything that comes in.</p>
+    <a class="btn-solid" href="/contact">Get In Touch →</a>
+  </section>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script>gsap.registerPlugin(ScrollTrigger);</script>
-<script src="home-sequence.js"></script>
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="/apple-touch-icon.png" alt="" width="84" height="84" class="footer-logo">Gladian Rivera</div>
+      <div class="footer-connect">
+        <p class="eyebrow">Stay Connected</p>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <nav class="footer-sitenav">
+      <a href="/work-with-me">Work With Me</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+      <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener">Obsidian Rising LLC</a>
+    </nav>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+    </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
+  </div>
+</footer>
+
 <script>
 (function () {
   "use strict";
