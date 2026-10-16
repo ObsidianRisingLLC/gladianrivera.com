@@ -383,6 +383,46 @@
   @media (max-width: 800px) { .split-grid { grid-template-columns: 1fr; } }
 
   /* ---------- episodes ---------- */
+  /* ---------- content pillars ---------- */
+  .pillars-section { padding: 0 0 clamp(2.5rem, 5vw, 3.5rem); }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.25rem;
+  }
+  .pillar-card {
+    padding: 1.4rem 1.5rem 1.5rem;
+    border: 1px solid var(--ghost-border);
+    border-top: 2px solid var(--emerald-bright);
+    border-radius: 0.4rem;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .pillar-card h3 {
+    margin: 0 0 0.5rem;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+  .pillar-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: rgba(229, 226, 225, 0.76);
+  }
+  .episode-pillar {
+    display: inline-block;
+    margin: 0 0 0.6rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    background: rgba(31, 174, 116, 0.1);
+    border: 1px solid rgba(31, 174, 116, 0.28);
+    border-radius: 0.25rem;
+  }
+
   .episodes-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
   .section-heading {
     font-family: var(--font-body);
@@ -649,6 +689,30 @@
     </div>
   </section>
 
+  <section class="pillars-section">
+    <div class="wrap">
+      <p class="section-heading">What the Show Covers</p>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <h3>Leadership</h3>
+          <p>Presence, congruency, trust, and leading under pressure — what happens between people when the stakes are real.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Entrepreneurship</h3>
+          <p>Sales, energy, pitching, business decisions, and starting before you feel ready.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>AI &amp; Technology</h3>
+          <p>Responsible AI, AI in business and contracting, and what's emerging that leaders need to understand.</p>
+        </div>
+        <div class="pillar-card">
+          <h3>Human Behavior</h3>
+          <p>Mindset, intuition, mental rehearsal, and how pressure and experience shape who we become.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="episodes-section" id="episodes">
     <div class="wrap">
       <p class="section-heading">Episodes — Ones I Made</p>
@@ -656,6 +720,7 @@
       <article class="episode">
         <span class="episode-num">09</span>
         <div>
+          <span class="episode-pillar">Leadership</span>
           <h3>The Power of Congruency</h3>
           <p>Words are easy. Trust is built when actions match what someone says. Drawing on Air Force JROTC, martial arts instruction, correctional work, and victim advocacy, Gladian explores how to look past polished language and pay attention to patterns — noticing when behavior and words don't line up, listening to the absence of words, recognizing manipulation, and using congruence as a filter for choosing clients, partners, and collaborators.</p>
           <div class="episode-tags"><span>Congruence</span><span>Trust</span><span>Communication</span><span>Leadership</span></div>
@@ -669,6 +734,7 @@
       <article class="episode">
         <span class="episode-num">08</span>
         <div>
+          <span class="episode-pillar">Entrepreneurship</span>
           <h3>The Power of Energy in Business</h3>
           <p>People don't buy your credentials first — they experience your energy, clarity, and story. What starts as an observation about a charismatic speaker turns into a deeper look at sales, influence, and trust: why intention matters before you explain your offer, how to find the real pain point behind what customers say they want, and why the parts of yourself you've been minimizing may be exactly what makes people connect with you.</p>
           <div class="episode-tags"><span>Pitching</span><span>Sales</span><span>Personal Brand</span><span>Communication</span></div>
@@ -682,6 +748,7 @@
       <article class="episode">
         <span class="episode-num">07</span>
         <div>
+          <span class="episode-pillar">Entrepreneurship</span>
           <h3>Why Your Gut Knows Before Your Mind Does in Business</h3>
           <p>Entrepreneurs are taught to trust data, strategy, and logic — but a decision can look right on paper while something inside you is already signaling that it isn't aligned. Gladian explores intuition, discernment, and boundaries: why well-meaning advice can still be wrong for your direction, how to tell a true yes from a pressured one, and how instinct and due diligence work together when deciding what deserves your yes.</p>
           <div class="episode-tags"><span>Intuition</span><span>Discernment</span><span>Boundaries</span><span>Business Decisions</span></div>
@@ -695,6 +762,7 @@
       <article class="episode">
         <span class="episode-num">06</span>
         <div>
+          <span class="episode-pillar">AI &amp; Technology</span>
           <h3>The Power of AI in Government Contracting</h3>
           <p>AI can help small businesses and government contractors work faster — without giving up judgment, oversight, or control. Gladian walks through using AI to identify RFP requirements, organize compliance matrices, and draft initial responses, shares the BEAT Framework for high-stakes decisions, and explains why traceability, input protection, and human review matter before letting AI act inside your business systems.</p>
           <div class="episode-tags"><span>Responsible AI</span><span>Government Contracting</span><span>RFPs</span><span>Small Business</span></div>
@@ -708,6 +776,7 @@
       <article class="episode">
         <span class="episode-num">05</span>
         <div>
+          <span class="episode-pillar">Human Behavior</span>
           <h3>The Power of Mindset and Resilience</h3>
           <p>Resilience is more than something you discover after life gets hard — it's a skill you can strengthen before pressure arrives. Gladian sits down with Juliet Foster, founder of Iron Crucible LLC, to explore mindset, emotional regulation, situational awareness, and why responding with intention matters more than reacting in the moment.</p>
           <div class="episode-tags"><span>Resilience</span><span>Mindset</span><span>Emotional Regulation</span><span>Personal Safety</span></div>
@@ -721,6 +790,7 @@
       <article class="episode">
         <span class="episode-num">04</span>
         <div>
+          <span class="episode-pillar">Human Behavior</span>
           <h3>The Power of Mental Rehearsal</h3>
           <p>Your brain rehearses important moments before they happen — and the mental "videotapes" you run can determine how prepared you feel when it's time to perform. Gladian breaks down the science of mental rehearsal, from motor simulation and Hebb's rule to the WOOP method, and why visualizing the process matters more than visualizing the outcome.</p>
           <div class="episode-tags"><span>Mental Rehearsal</span><span>Visualization</span><span>Performance Psychology</span><span>Preparation</span></div>
@@ -734,6 +804,7 @@
       <article class="episode">
         <span class="episode-num">03</span>
         <div>
+          <span class="episode-pillar">Leadership</span>
           <h3>The Power of Presence</h3>
           <p>Most entrepreneurs are chasing attention — the real competitive advantage is the ability to give it. Gladian makes the case that presence is a business asset, a trust builder, and one of the last human advantages left in an AI-driven world.</p>
           <div class="episode-tags"><span>Presence</span><span>Leadership</span><span>Trust</span><span>Human Behavior</span></div>
@@ -746,6 +817,7 @@
       <article class="episode">
         <span class="episode-num">02</span>
         <div>
+          <span class="episode-pillar">Human Behavior</span>
           <h3>Why Resilience Alone Is Not Enough to Protect You</h3>
           <p>Resilience gets you through — but it isn't a strategy on its own. Gladian breaks down what actually protects you when resilience alone runs out: boundaries, systems, and support built before you need them.</p>
           <div class="episode-tags"><span>Resilience</span><span>Boundaries</span><span>Protection</span><span>Personal Growth</span></div>
@@ -759,6 +831,7 @@
       <article class="episode">
         <span class="episode-num">01</span>
         <div>
+          <span class="episode-pillar">Human Behavior</span>
           <h3>The Audacity of Resilience</h3>
           <p>What does it take to start before you feel ready? Gladian opens up about the eight-month delay before recording her first episode, the fear of stepping out from behind the curtain, and why beginning can be an act of resilience.</p>
           <div class="episode-tags"><span>Leadership</span><span>Courage</span><span>Entrepreneurship</span><span>Personal Growth</span></div>
