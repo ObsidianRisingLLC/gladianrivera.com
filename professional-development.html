@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Development — Gladian Rivera</title>
+<meta name="description" content="The Pursuit of Mastery: Gladian Rivera's commitment to lifelong learning across federal operations, criminal justice, victim services, executive leadership, organizational strategy, and artificial intelligence.">
+<link rel="canonical" href="https://gladianrivera.com/professional-development">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Gladian Rivera">
+<meta property="og:title" content="Professional Development — Gladian Rivera">
+<meta property="og:description" content="The Pursuit of Mastery: a commitment to lifelong learning across public service, leadership, and emerging technology.">
+<meta property="og:url" content="https://gladianrivera.com/professional-development">
+<meta property="og:image" content="https://gladianrivera.com/assets/social-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Professional Development — Gladian Rivera">
+<meta name="twitter:description" content="The Pursuit of Mastery: a commitment to lifelong learning across public service, leadership, and emerging technology.">
+<meta name="twitter:image" content="https://gladianrivera.com/assets/social-card.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Hanken+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background: #131313;
+    --foreground: #e5e2e1;
+    --purple: #2e1a47;
+    --purple-bright: #d6bcf4;
+    --emerald: #043927;
+    --emerald-bright: #1fae74;
+    --salmon: #B76E79;
+    --ghost-border: rgba(255, 255, 255, 0.12);
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-body: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+    --max-width: 1180px;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max-width); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.75rem 1.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-weight: 700;
+    border-radius: 0.25rem;
+    transition: top 0.2s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
+  /* ---------- floating nav ---------- */
+  .floating-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.8rem 1.75rem;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--ghost-border);
+    flex-wrap: wrap;
+  }
+  .floating-nav-brand-group { display: flex; align-items: center; gap: 0.85rem; }
+  .floating-nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--foreground); white-space: nowrap; }
+  .floating-nav-links { display: flex; align-items: center; gap: 0.3rem; flex-wrap: wrap; }
+  .floating-nav-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.82rem;
+    letter-spacing: 0.05em;
+    color: rgba(229, 226, 225, 0.82);
+    transition: color 0.25s ease, background 0.25s ease;
+    white-space: nowrap;
+  }
+  .floating-nav-links a:hover, .floating-nav-links a:focus-visible {
+    color: var(--salmon);
+    background: rgba(183, 110, 121, 0.08);
+  }
+  .floating-nav-links a.current { color: var(--salmon); background: rgba(183, 110, 121, 0.1); }
+
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--ghost-border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 15px;
+    height: 1.5px;
+    background: var(--foreground);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .floating-nav { padding: 0.9rem 1.2rem; gap: 0.6rem 1rem; }
+    .floating-nav-links { gap: 0.2rem; }
+    .floating-nav-links a { font-size: 0.74rem; padding: 0.45rem 0.65rem; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-toggle { display: flex; }
+    .floating-nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 1.1rem;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--ghost-border);
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+    .floating-nav-links.is-open { max-height: 400px; padding: 0.5rem 1.1rem 1rem; }
+    .floating-nav-links a { width: 100%; padding: 0.75rem 0.5rem; font-size: 0.85rem; border-radius: 0.35rem; }
+  }
+
+  /* ---------- hero ---------- */
+  .pd-hero {
+    position: relative;
+    padding: clamp(9rem, 22vh, 12rem) 0 clamp(4rem, 8vw, 6rem);
+    overflow: hidden;
+  }
+  .pd-hero::before {
+    /* faint purple + emerald glow behind the headline */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 60% at 18% 30%, rgba(46, 26, 71, 0.55), transparent 70%),
+      radial-gradient(ellipse 40% 50% at 85% 75%, rgba(4, 57, 39, 0.45), transparent 70%);
+    pointer-events: none;
+  }
+  .pd-hero .wrap { position: relative; }
+  .pd-hero .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1.4rem;
+  }
+  .pd-hero h1 {
+    margin: 0 0 1.6rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1.05;
+  }
+  .pd-hero h1 em {
+    display: block;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--purple-bright);
+    text-shadow: 0 0 40px rgba(214, 188, 244, 0.25);
+  }
+  .pd-hero .lede {
+    max-width: 52ch;
+    margin: 0;
+    font-size: clamp(1.02rem, 1.6vw, 1.15rem);
+    line-height: 1.75;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .pd-hero .eyebrow, .pd-hero h1, .pd-hero .lede {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: rise-in 1.4s ease-out forwards;
+  }
+  .pd-hero h1 { animation-delay: 0.15s; }
+  .pd-hero .lede { animation-delay: 0.3s; }
+  @keyframes rise-in { to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .pd-hero .eyebrow, .pd-hero h1, .pd-hero .lede { animation: none; opacity: 1; transform: none; }
+  }
+
+  /* ---------- stats strip ---------- */
+  .stats-section { padding: 0 0 clamp(4rem, 8vw, 6rem); }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid var(--ghost-border);
+    border-bottom: 1px solid var(--ghost-border);
+    padding: clamp(2rem, 4vw, 2.75rem) 0;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    color: var(--purple-bright);
+    line-height: 1.1;
+  }
+  .stat-label {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.6);
+  }
+  @media (max-width: 700px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.5rem; } }
+
+  /* ---------- intro / philosophy ---------- */
+  .bio-section { padding: 0 0 clamp(4rem, 8vw, 6rem); }
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .bio-grid .eyebrow, .section-heading .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--salmon);
+    margin: 0;
+  }
+  .bio-copy p {
+    margin: 0 0 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(229, 226, 225, 0.85);
+  }
+  .bio-copy p:last-child { margin-bottom: 0; }
+  .bio-copy a { color: var(--salmon); font-weight: 700; }
+  .bio-copy a:hover { color: var(--purple-bright); }
+  @media (max-width: 800px) { .bio-grid { grid-template-columns: 1fr; } }
+
+  .pull-quote {
+    margin: 0 auto clamp(4rem, 8vw, 6rem);
+    max-width: 860px;
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    border-top: 1px solid var(--ghost-border);
+    border-bottom: 1px solid var(--ghost-border);
+    text-align: center;
+  }
+  .pull-quote p {
+    margin: 0;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.4rem, 2.8vw, 2.05rem);
+    line-height: 1.4;
+    color: var(--foreground);
+  }
+  .pull-quote p em { color: var(--purple-bright); }
+
+  /* ---------- disciplines ---------- */
+  .disciplines { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .disciplines li {
+    list-style: none;
+    padding: 0.45rem 0.9rem;
+    border: 1px solid var(--ghost-border);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(229, 226, 225, 0.82);
+  }
+  .disciplines { padding: 0; margin-bottom: 0; }
+
+  /* ---------- journey timeline ---------- */
+  .journey-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .section-heading { margin: 0 0 clamp(2.25rem, 4vw, 3.25rem); }
+  .section-heading .eyebrow { margin: 0 0 0.6rem; }
+  .section-heading h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  }
+  .section-heading h2 em { font-style: italic; font-weight: 600; color: var(--purple-bright); }
+
+  .timeline { border-left: 1px solid var(--ghost-border); }
+  .year {
+    position: relative;
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+    padding: 0 0 clamp(2.75rem, 5vw, 3.75rem) clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .year:last-child { padding-bottom: 0; }
+  .year::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 0.85rem;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--emerald-bright);
+    box-shadow: 0 0 0 4px var(--background);
+  }
+  .year.in-progress::before { background: var(--background); border: 1.5px solid var(--purple-bright); width: 11px; height: 11px; left: -6px; }
+  .year-label {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+    line-height: 1;
+    color: var(--purple-bright);
+  }
+  .year.in-progress .year-label { white-space: nowrap; font-size: clamp(1.7rem, 2.6vw, 2.1rem); }
+  .year-count {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.55);
+  }
+  .year-theme {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin-bottom: 0.5rem;
+  }
+  .year h3 {
+    margin: 0 0 0.75rem;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+    line-height: 1.25;
+  }
+  .year-body > p {
+    margin: 0 0 1.5rem;
+    max-width: 64ch;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.78);
+  }
+  .featured {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.4rem 0.9rem;
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(183, 110, 121, 0.35);
+    border-radius: 0.4rem;
+    background: rgba(183, 110, 121, 0.05);
+  }
+  .featured-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--salmon);
+  }
+  .featured-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--foreground);
+  }
+  .highlights-label {
+    margin: 0 0 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(229, 226, 225, 0.55);
+  }
+  .highlights {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 2rem;
+  }
+  .highlights li {
+    position: relative;
+    padding: 0.7rem 0 0.7rem 1.1rem;
+    border-top: 1px solid var(--ghost-border);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: rgba(229, 226, 225, 0.85);
+  }
+  .highlights li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 1.25rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--salmon);
+  }
+  .highlights li span { display: block; font-size: 0.8rem; color: rgba(229, 226, 225, 0.55); margin-top: 0.15rem; }
+
+  .ghost-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border: 1px solid var(--salmon);
+    border-radius: 0.25rem;
+    color: var(--salmon);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .ghost-btn:hover, .ghost-btn:focus-visible { background: var(--salmon); color: #1a0f12; }
+  .solid-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    border: 1px solid var(--salmon);
+    border-radius: 0.25rem;
+    background: var(--salmon);
+    color: #1a0f12;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: filter 0.25s ease, transform 0.25s ease;
+  }
+  .solid-btn:hover, .solid-btn:focus-visible { filter: brightness(1.08); transform: translateY(-2px); }
+
+  @media (max-width: 760px) {
+    .year { grid-template-columns: 1fr; gap: 0.9rem; }
+    .highlights { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- beyond the classroom ---------- */
+  .beyond-section { padding: 0 0 clamp(4rem, 8vw, 6.5rem); }
+  .closing {
+    margin-top: 2rem;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 600;
+    font-size: clamp(1.2rem, 2.2vw, 1.5rem) !important;
+    line-height: 1.5 !important;
+    color: var(--purple-bright) !important;
+  }
+
+  /* ---------- invitation ---------- */
+  .invitation {
+    padding: clamp(3.5rem, 7vw, 5rem) 0;
+    border-top: 1px solid var(--ghost-border);
+    text-align: center;
+  }
+  .invitation .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--emerald-bright);
+    margin: 0 0 1rem;
+  }
+  .invitation h2 {
+    margin: 0 auto 1.1rem;
+    max-width: 22ch;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    line-height: 1.15;
+  }
+  .invitation h2 em { font-style: italic; font-weight: 600; color: var(--purple-bright); }
+  .invitation p {
+    margin: 0 auto 2rem;
+    max-width: 56ch;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(229, 226, 225, 0.78);
+  }
+  .invitation-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--ghost-border); padding: 2.25rem 0 1.5rem; }
+  .footer-top { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3rem; margin-bottom: 1.75rem; }
+  .footer-brand { display: flex; align-items: center; gap: 0.65rem; font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; }
+  .footer-logo { width: 84px; height: 84px; border-radius: 50%; }
+  .footer-nav { display: flex; flex-wrap: wrap; gap: 1.2rem 1.6rem; }
+  .footer-nav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-nav a:hover { color: var(--salmon); }
+  .footer-connect { text-align: right; }
+  .footer-connect .eyebrow { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(229, 226, 225, 0.5); margin: 0 0 0.8rem; }
+  .footer-sitenav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.5rem;
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+  .footer-sitenav a { font-size: 0.82rem; color: rgba(229, 226, 225, 0.72); }
+  .footer-sitenav a:hover { color: var(--salmon); }
+  .footer-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding-top: 1.6rem; border-top: 1px solid var(--ghost-border); font-size: 0.76rem; color: rgba(229, 226, 225, 0.5); }
+  .footer-legal { display: flex; gap: 1.2rem; }
+  .footer-legal a:hover { color: var(--foreground); }
+  .footer-credit { margin: 1.2rem 0 0; text-align: center; font-size: 0.72rem; color: rgba(229, 226, 225, 0.35); }
+  @media (max-width: 700px) { .footer-top { grid-template-columns: 1fr; } .footer-connect { text-align: left; } }
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<nav class="floating-nav">
+  <div class="floating-nav-brand-group">
+    <a href="/" class="floating-nav-brand">Gladian Rivera</a>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="floating-nav-links">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="floating-nav-links" id="floating-nav-links">
+    <a href="/">Home</a>
+    <a href="/about" class="current">About</a>
+    <a href="/work-with-me">Work With Me</a>
+    <a href="/podcast">Podcast</a>
+    <a href="/book">Book</a>
+    <a href="/contact">Contact</a>
+  </div>
+</nav>
+
+<main id="main-content">
+  <section class="pd-hero">
+    <div class="wrap">
+      <p class="eyebrow">Professional Development</p>
+      <h1>The Pursuit of <em>Mastery</em></h1>
+      <p class="lede">A commitment to lifelong learning, and to turning what I learn into systems that serve people.</p>
+    </div>
+  </section>
+
+  <section class="stats-section">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number">98</span>
+          <span class="stat-label">Completed Trainings</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">9</span>
+          <span class="stat-label">Areas of Study</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">2021</span>
+          <span class="stat-label">Learning Continuously Since</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Executive Leadership Program</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bio-section">
+    <div class="wrap bio-grid">
+      <p class="eyebrow">Why I Keep Learning</p>
+      <div class="bio-copy">
+        <p>I have never been satisfied with knowing just enough. Curiosity is what gets me into the room. Discipline is what keeps me learning once I&rsquo;m there.</p>
+        <p>Across public service, organizational leadership, and now entrepreneurship, I have deliberately studied the systems I work inside: federal operations, criminal justice, victim services, trauma-informed practice, executive leadership, organizational strategy, and, most recently, artificial intelligence.</p>
+        <p>Each season of learning gave me a new lens. How institutions actually function. How trauma shapes the people moving through them. How teams grow, resist, and change. And how technology can strengthen the human side of the work instead of replacing it.</p>
+        <ul class="disciplines" aria-label="Areas of study">
+          <li>Federal Operations</li>
+          <li>Criminal Justice</li>
+          <li>Victim Services</li>
+          <li>Forensic Interviewing</li>
+          <li>Trauma-Informed Practice</li>
+          <li>Project Management</li>
+          <li>Human Resources</li>
+          <li>Executive Leadership</li>
+          <li>Artificial Intelligence</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <blockquote class="pull-quote">
+      <p>Learning has never been about collecting certificates. It has been about building the capacity to <em>do more, understand more, and contribute more.</em></p>
+    </blockquote>
+  </div>
+
+  <section class="journey-section">
+    <div class="wrap">
+      <div class="section-heading">
+        <p class="eyebrow">The Journey</p>
+        <h2>Five Chapters of <em>Learning</em></h2>
+      </div>
+
+      <div class="timeline">
+
+        <article class="year">
+          <div>
+            <div class="year-label">2021</div>
+            <span class="year-count">49 completed trainings</span>
+          </div>
+          <div class="year-body">
+            <span class="year-theme">Foundation</span>
+            <h3>Federal Operations &amp; Criminal Justice</h3>
+            <p>My first year in federal service was a deep immersion. I studied the work from every angle: how cases are built, how victims are served, how trauma and addiction shape the people inside the system, and how investigations move from evidence to outcome.</p>
+            <div class="featured">
+              <span class="featured-tag">Featured</span>
+              <span class="featured-name">Forensic Interviewing of Child and Adolescent Victims and Witnesses in Indian Country</span>
+            </div>
+            <p class="highlights-label">Selected Training</p>
+            <ul class="highlights">
+              <li>Advanced Narcotics Seminar Series<span>Virtual Currency, The Dark Web, AlphaBay Case Study, Synthetic Narcotics, Fentanyl</span></li>
+              <li>Advanced Money Laundering Seminar<span>Best Practices in Digital Currency</span></li>
+              <li>Investigation of Child Homicide</li>
+              <li>Neurobiology of Addiction</li>
+              <li>A Structured Approach to Improving Victim Safety Plans</li>
+              <li>Applying Implementation Science to the Criminal Justice and Substance Use Field</li>
+              <li>The Practice of Mattering<span>A Person-Centered Approach to Honoring the Dignity of the Person in Victim Status</span></li>
+              <li>National Leadership Conference</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="year">
+          <div>
+            <div class="year-label">2022</div>
+            <span class="year-count">12 completed trainings</span>
+          </div>
+          <div class="year-body">
+            <span class="year-theme">Structure</span>
+            <h3>Project Management &amp; Federal Partnerships</h3>
+            <p>I added structure to the work. Agile methodology gave me a framework for moving initiatives forward, while partnership-focused training sharpened how prosecutors, coordinators, and communities work together on behalf of victims.</p>
+            <div class="featured">
+              <span class="featured-tag">Featured Credential</span>
+              <span class="featured-name">Scrum Master</span>
+            </div>
+            <p class="highlights-label">Selected Training</p>
+            <ul class="highlights">
+              <li>Operation 922: Reducing Gun Violence by Targeting Domestic Violence</li>
+              <li>Victim Witness Coordinator and Attorney Partnerships for Better Victim Communications</li>
+              <li>National Association of Drug Court Professionals RISE22 Conference</li>
+              <li>Project Safe Childhood: Human Trafficking 101</li>
+              <li>Domestic Violence, Sexual Assault and Stalking in the Workplace</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="year">
+          <div>
+            <div class="year-label">2023</div>
+            <span class="year-count">23 completed trainings</span>
+          </div>
+          <div class="year-body">
+            <span class="year-theme">Systems</span>
+            <h3>Organizational Systems &amp; Human Resources</h3>
+            <p>My focus widened from the work itself to the systems that hold it up: supervising people, managing positions, governing information, and building document infrastructure that teams can rely on.</p>
+            <div class="featured">
+              <span class="featured-tag">Featured</span>
+              <span class="featured-name">2022 Revisions to the Attorney General Guidelines for Victim and Witness Assistance</span>
+            </div>
+            <p class="highlights-label">Selected Training</p>
+            <ul class="highlights">
+              <li>Supervisory Refresher: Improving Employee Performance and Productivity</li>
+              <li>Human Resources Academy: Position Management for Managers</li>
+              <li>Federal Records and Information Management</li>
+              <li>Enterprise Document Management &amp; Information Security<span>NetDocuments series, 10 modules</span></li>
+              <li>Wellness Matters: Well-Being in Law</li>
+              <li>Telework Fundamentals</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="year">
+          <div>
+            <div class="year-label">2024</div>
+            <span class="year-count">14 completed trainings</span>
+          </div>
+          <div class="year-body">
+            <span class="year-theme">Leadership</span>
+            <h3>Executive Leadership &amp; Organizational Strategy</h3>
+            <p>The year I invested most intentionally in leading. Executive development, strategic human resources, change management, and program management became the bridge between operational expertise and the leadership work I do today.</p>
+            <div class="featured">
+              <span class="featured-tag">Featured Credential</span>
+              <span class="featured-name">Graduate School USA: Executive Leadership Program</span>
+            </div>
+            <p class="highlights-label">Selected Training</p>
+            <ul class="highlights">
+              <li>Leading Change</li>
+              <li>Strategic Human Resources</li>
+              <li>Business Relationship Management Process</li>
+              <li>Human Resources: Job Structure and Design</li>
+              <li>What Is Program Management?</li>
+              <li>Top 10 Rules for Highly Effective Leadership</li>
+              <li>Speak with Intention</li>
+              <li>Skills for Your First 90 Days as a New Manager</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="year in-progress">
+          <div>
+            <div class="year-label">2025&ndash;26</div>
+            <span class="year-count">In progress</span>
+          </div>
+          <div class="year-body">
+            <span class="year-theme">Emerging Technology</span>
+            <h3>Artificial Intelligence &amp; Emerging Technologies</h3>
+            <p>Today my learning centers on artificial intelligence and the evolving relationship between people, organizational systems, and the tools they use. It&rsquo;s the same question I have always asked, with new tools: how do we build systems that truly serve people? My AI coursework and credentials are on LinkedIn, and this chapter is still being written.</p>
+            <a class="ghost-btn" href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">View on LinkedIn &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="beyond-section">
+    <div class="wrap bio-grid">
+      <p class="eyebrow">Beyond the Classroom</p>
+      <div class="bio-copy">
+        <p>Training gave me language and frameworks. The real education came from putting them to work: co-creating a federal reentry court program, building operational infrastructure, leading initiatives through complexity, and founding <a href="https://obsidianrisingllc.com" target="_blank" rel="noopener">Obsidian Rising LLC</a> to help organizations adopt AI responsibly.</p>
+        <p>Every course I complete is only as valuable as what I do with it. That&rsquo;s the standard I hold myself to.</p>
+        <p class="closing">Mastery is not a destination. It is the daily practice of becoming more capable, more informed, and more effective in the work we choose to do.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="invitation">
+    <div class="wrap">
+      <p class="eyebrow">Let&rsquo;s Build Together</p>
+      <h2>Put this experience to work for <em>your organization</em></h2>
+      <p>From federal systems to responsible AI, I bring a learner&rsquo;s curiosity and an operator&rsquo;s discipline to every engagement.</p>
+      <div class="invitation-actions">
+        <a class="solid-btn" href="/work-with-me">Work With Me &rarr;</a>
+        <a class="ghost-btn" href="/about">Back to About</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand"><img src="/apple-touch-icon.png" alt="" width="84" height="84" class="footer-logo">Gladian Rivera</div>
+      <div class="footer-connect">
+        <p class="eyebrow">Stay Connected</p>
+        <nav class="footer-nav" style="justify-content: flex-end;">
+          <a href="https://www.linkedin.com/in/gladianrivera/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/gladianrivera/" target="_blank" rel="noopener">Instagram</a>
+        </nav>
+      </div>
+    </div>
+    <nav class="footer-sitenav">
+      <a href="/work-with-me">Work With Me</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/portfolio">Portfolio</a>
+      <a href="/services">Services</a>
+      <a href="/professional-development">Professional Development</a>
+    </nav>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Gladian Rivera. Ideas. Impact. Transformation.</span>
+      <div class="footer-legal">
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms &amp; Conditions</a>
+        <a href="/accessibility">Accessibility</a>
+      </div>
+    </div>
+    <p class="footer-credit">Created by Obsidian Rising LLC &mdash; 2026</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var toggle = document.getElementById("nav-toggle");
+  var links = document.getElementById("floating-nav-links");
+  if (!toggle || !links) return;
+  toggle.addEventListener("click", function () {
+    var open = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!open));
+    links.classList.toggle("is-open", !open);
+  });
+  links.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function () {
+      toggle.setAttribute("aria-expanded", "false");
+      links.classList.remove("is-open");
+    });
+  });
+})();
+</script>
+</body>
+</html>
